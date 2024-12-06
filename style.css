@@ -1,0 +1,119 @@
+.about-section {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+.about-section h2 {
+    color: #111;
+    margin-bottom: 20px;
+}
+.about-section img {
+    max-width: 250px;
+    border: 5px solid #f1f1f1;
+}
+.statistics h3 {
+    font-size: 2.5rem;
+    color: #ff9800;
+    margin-bottom: 0;
+}
+.statistics p {
+    color: #666;
+    margin-top: 5px;
+}
+
+.target-audience {
+    padding: 60px 0;
+}
+.target-audience h2 {
+    margin-bottom: 20px;
+    color: #111;
+}
+.target-audience p {
+    color: #666;
+}
+.target-audience h4 {
+    color: #ff9800;
+    margin-bottom: 10px;
+}
+.target-audience .btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+.youtube-section {
+    background-color: #222;
+    color: #fff;
+}
+.benefits-section img {
+    max-width: 50px;
+}
+.benefits-section h5 {
+    margin-top: 10px;
+    color: #ff9800;
+}
+.testimonials-section blockquote {
+    font-style: italic;
+    color: #555;
+    border-left: 5px solid #ff9800;
+    padding-left: 10px;
+}
+.testimonials-section footer {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+.contact-section h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #111;
+}
+.contact-section .btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    display: inline-flex;
+    align-items: center;
+}
+.footer {
+    font-size: 0.9rem;
+}
+.footer img {
+    max-width: 100%;
+}
+/* Estilo do Navbar */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    max-height: 50px;
+}
+
+.nav-link {
+    color: #fff;
+    margin-right: 20px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #ff9800;
+}
+
+.nav-link.active {
+    color: #ff9800;
+    font-weight: bold;
+}
+
+.navbar .btn-danger {
+    background-color: #ff0000;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.navbar .btn-danger:hover {
+    background-color: #cc0000;
+}
+
+/* Campo de pesquisa */
+.navbar .form-control {
+    border-radius: 0;
+}
