@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assinatura Completa 2025 - Prof. Jhoni Zini</title>
-    <!-- Meta Description for SEO -->
-    <meta name="description"
-        content="Domine Exatas com a Assinatura Completa 2025 do Prof. Jhoni Zini. Cursos completos para aprovação em vestibulares e concursos!">
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Assinatura Completa 2025 - Prof. Jhoni Zini">
-    <meta property="og:description"
-        content="Domine Exatas com a Assinatura Completa 2025 do Prof. Jhoni Zini. Cursos completos para aprovação em vestibulares e concursos!">
+    <title>Assinatura Completa 2025 - Prof. Alan Soares</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Domine Exatas com a Assinatura Completa 2025 do Prof. Alan Soares.">
+    <meta property="og:title" content="Assinatura Completa 2025 - Prof. Alan Soares">
+    <meta property="og:description" content="Domine Exatas com a Assinatura Completa 2025 do Prof. Alan Soares.">
     <meta property="og:image" content="URL_DA_IMAGEM_DE_DESTAQUE">
     <meta property="og:url" content="URL_DA_SUA_PAGINA">
+    
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <!-- Swiper CSS for Sliders -->
+    <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8/swiper-bundle.min.css" />
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Lato:wght@400;700&display=swap"
-        rel="stylesheet">
-    <!-- AOS Animation CSS -->
+    <!-- AOS CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
     <style>
-        /* Reset básico */
+        /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
@@ -39,9 +39,9 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            background: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: #fff;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
@@ -51,164 +51,364 @@
             color: inherit;
         }
 
-        /* Navbar */
-        .navbar {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
-            transition: 0.3s;
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5147d9;
+            --accent: #FF6584;
+            --text-color: #ffffff;
+            --bg-light: #f9fafb;
         }
 
-        .navbar-brand img {
-            max-height: 50px;
-            border-radius: 50%;
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            color: #333;
-            transition: color 0.3s;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: #e74c3c;
-        }
-
-        .navbar.scrolled {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Banner Alerta */
+        /* Banner Alert */
         .banner-alert {
-            background-color: #e74c3c;
+            background: var(--primary);
             color: #fff;
             text-align: center;
-            padding: 8px;
+            padding: 10px;
             font-weight: 600;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1030;
             font-size: 0.95rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Header / Hero */
-        .main-header {
-            background: url('imgs/header-bg.PNG') no-repeat center center/cover;
-            padding: 180px 20px 200px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            color: #fff;
-        }
-
-        .main-header::after {
-            content: "";
-            position: absolute;
-            width: 250px;
-            height: 250px;
-            top: 50%;
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 50px;
             left: 50%;
-            transform: translate(-50%, -50%);
-            background: url('imgs/atom-icon.svg') no-repeat center/contain;
-            opacity: 0.15;
-            animation: spin 30s linear infinite;
+            transform: translateX(-50%);
+            width: 90%;
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 0.5rem 2rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -6px;
+            left: 50%;
+            background: var(--primary);
+            transition: width 0.3s, left 0.3s;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            text-shadow: 0 0 5px var(--primary), 0 0 10px var(--accent);
+        }
+
+        .navbar-toggler {
+            border: none;
+            background: none;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        @media(max-width: 991px) {
+            .navbar {
+                top: 20px;
+                width: 95%;
+            }
+
+            .navbar-collapse {
+                background: rgba(255,255,255,0.2);
+                backdrop-filter: blur(15px);
+                border-radius: 20px;
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+            .nav-item {
+                margin: 0.5rem 0;
+            }
+            .nav-item .nav-link {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* HERO */
+        .main-header {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            background: #000;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Particles.js container */
+        #particles-js {
+            position: absolute;
+            top:0;left:0;width:100%;height:100%;
             z-index: 1;
         }
 
-        @keyframes spin {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
+        /* Animações Fórmulas Horizontais e Verticais */
+        @keyframes slideHorizontal {
+            0% {transform: translateX(0);}
+            100% {transform: translateX(200%);}
         }
 
-        .main-header h1 {
-            font-size: 3.5rem;
+        @keyframes slideHorizontalAlt {
+            0% {transform: translateX(100%);}
+            100% {transform: translateX(-200%);}
+        }
+
+        @keyframes slideVertical {
+            0% {transform: translateY(0);}
+            100% {transform: translateY(200%);}
+        }
+
+        @keyframes slideVerticalAlt {
+            0% {transform: translateY(200%);}
+            100% {transform: translateY(0);}
+        }
+
+        /* Base para Fórmulas */
+        .formula-line, .formula-column {
+            position: absolute;
+            white-space: nowrap;
+            pointer-events: none;
+            font-family: 'Courier New', Courier, monospace;
             font-weight: 700;
-            margin-bottom: 20px;
-            text-shadow: 0 0 10px #e74c3c, 0 0 20px #e74c3c;
-            position: relative;
-            z-index: 2;
-            animation: fadeInDown 1.5s ease forwards;
-        }
-
-        .main-header p {
-            font-size: 1.3rem;
-            font-weight: 500;
-            margin-bottom: 40px;
-            color: #ddd;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease forwards 1s;
-            position: relative;
-            z-index: 2;
-        }
-
-        .main-header .btn {
-            font-size: 1.1rem;
-            padding: 12px 35px;
-            border-radius: 30px;
-            background-color: #e74c3c;
             color: #fff;
-            font-weight: 600;
-            transition: background-color 0.3s, transform 0.3s;
-            opacity: 0;
-            animation: fadeInUp 1.5s ease forwards 1.5s;
-            position: relative;
+            text-shadow: 0 0 10px rgba(255,255,255,0.7);
+        }
+
+        /* Diferentes Linhas Horizontais */
+        .hero-formulas-horizontal {
+            top: 30%;
+            left: -150%;
+            display: flex;
+            gap: 60px;
+            animation: slideHorizontal 50s linear infinite;
+            opacity: 0.15;
+            font-size: 3rem;
             z-index: 2;
         }
 
-        .main-header .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
+        .hero-formulas-horizontal-alt {
+            top: 50%;
+            left: 150%;
+            display: flex;
+            gap: 40px;
+            animation: slideHorizontalAlt 35s linear infinite;
+            opacity: 0.1;
+            font-size: 2.5rem;
+            z-index: 2;
         }
 
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+        .hero-formulas-horizontal-alt2 {
+            top: 70%;
+            left: -200%;
+            display: flex;
+            gap: 50px;
+            animation: slideHorizontal 60s linear infinite;
+            opacity: 0.12;
+            font-size: 2.8rem;
+            z-index: 2;
+        }
 
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Diferentes Colunas Verticais */
+        .hero-formulas-vertical {
+            left: 20%;
+            top: -150%;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            animation: slideVertical 55s linear infinite;
+            opacity: 0.12;
+            font-size: 2.5rem;
+            z-index: 2;
+        }
+
+        .hero-formulas-vertical-alt {
+            left: 80%;
+            top: 150%;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            animation: slideVerticalAlt 45s linear infinite;
+            opacity: 0.1;
+            font-size: 2rem;
+            z-index: 2;
+        }
+
+        /* Título com Efeito Glitch Neon */
+        @keyframes glitch {
+            0% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00a8; }
+            20% { text-shadow: 0 0 10px #00f9ff, 0 0 20px #ff00a8; }
+            40% { text-shadow: 0 0 5px #ff00a8, 0 0 10px #00f9ff; }
+            60% { text-shadow: 0 0 5px #ff00a8, 0 0 10px #00f9ff; }
+            80% { text-shadow: 0 0 10px #00f9ff, 0 0 20px #ff00a8; }
+            100% { text-shadow: 0 0 5px #fff, 0 0 10px #ff00a8; }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeInUp 1.5s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
         @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            to {opacity:1; transform:translateY(0);}
         }
 
-        /* Fórmulas */
-        .formula-section {
-            background: #fff;
-            padding: 80px 20px;
-            text-align: center;
+        .header-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #fff;
+            letter-spacing: 1px;
+            animation: glitch 3s infinite;
             position: relative;
         }
 
-        .formula-section h2 {
+        .header-content p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #f5f5f5;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* Botão CTA com efeito 3D e Glow */
+        .header-content .btn {
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 0.75rem 2.5rem;
+            border-radius: 30px;
+            background: linear-gradient(to right, #00f9ff, #ff00a8);
+            color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content .btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(45deg);
+            transition: opacity 0.3s;
+            opacity: 0;
+        }
+
+        .header-content .btn:hover::before {
+            opacity: 1;
+        }
+
+        .header-content .btn:hover {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 20px rgba(255, 0, 168, 0.5);
+        }
+
+        /* Seções */
+        section {
+            padding: 80px 20px;
+        }
+
+        section.dark {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        section.light {
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        section h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: #333;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            position: relative;
+            display: inline-block;
         }
 
-        .formula-section h2 span {
-            color: #e74c3c;
+        section h2::before {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            margin-bottom: 20px;
+            border-radius: 2px;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
+        /* Fórmulas na Seção */
         .formula-marquee {
             overflow: hidden;
             white-space: nowrap;
@@ -225,26 +425,12 @@
             animation: marquee 20s linear infinite;
             font-family: 'Courier New', Courier, monospace;
             font-size: 1.5rem;
-        }
-
-        .formula-marquee-content span {
-            margin: 0 50px;
             color: #555;
-            transition: color 0.3s;
-        }
-
-        .formula-marquee-content span:hover {
-            color: #e74c3c;
         }
 
         @keyframes marquee {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
+            0% {transform: translateX(-100%);}
+            100% {transform: translateX(100%);}
         }
 
         .formula-caption {
@@ -256,35 +442,57 @@
             margin-right: auto;
         }
 
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: #fff;
+            padding: 15px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+        }
+
+        .back-to-top i {
+            font-size: 1.5rem;
+        }
+
         /* Cursos */
         .courses-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #f9f9f9 0%, #f1f1f1 100%);
-            position: relative;
+            background: #1e1e1e;
         }
 
         .courses-section h2 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 60px;
-            font-weight: 700;
-            text-align: center;
+            color: #fff;
         }
 
         .course-card {
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
             margin-bottom: 30px;
-            background-color: #fff;
+            background-color: #2c3e50;
             border-radius: 12px;
             overflow: hidden;
             position: relative;
             cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
 
         .course-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(0, 0, 0, 0.7);
         }
 
         .course-card img {
@@ -295,41 +503,37 @@
 
         .course-card h5 {
             font-weight: 600;
-            color: #333;
+            color: #fff;
             margin-top: 15px;
         }
 
         .course-card p {
-            color: #555;
+            color: #ddd;
+            font-weight: 500;
         }
 
         .course-card .btn {
-            background-color: #e74c3c;
+            background: linear-gradient(to right, var(--primary), var(--accent));
             color: #fff;
             border-radius: 30px;
             font-weight: 600;
             padding: 10px 30px;
-            transition: 0.3s;
+            transition: transform 0.3s;
             margin-top: 15px;
         }
 
         .course-card .btn:hover {
-            background-color: #c0392b;
+            transform: scale(1.05);
+            background: linear-gradient(to right, var(--accent), var(--primary));
         }
 
         /* Sobre */
         .about-section {
-            padding: 100px 20px;
-            background: #fff;
-            position: relative;
-            text-align: center;
+            background: #121212;
         }
 
         .about-section h2 {
-            color: #333;
-            margin-bottom: 60px;
-            font-weight: 700;
-            font-size: 2.5rem;
+            color: #fff;
         }
 
         .about-content {
@@ -343,7 +547,12 @@
         .about-image img {
             max-width: 350px;
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.05);
         }
 
         .about-text {
@@ -353,15 +562,17 @@
 
         .about-text p {
             font-size: 1.1rem;
-            color: #555;
+            color: #ccc;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .statistics {
             display: flex;
-            justify-content: start;
+            justify-content: center;
             gap: 50px;
             margin-top: 40px;
+            flex-wrap: wrap;
         }
 
         .statistics div {
@@ -370,64 +581,69 @@
 
         .statistics h3 {
             font-size: 2rem;
-            color: #e74c3c;
+            color: var(--primary);
             margin-bottom: 10px;
             font-weight: 700;
         }
 
         .statistics p {
-            color: #333;
+            color: #fff;
             font-weight: 500;
         }
 
         .about-text .btn {
-            background-color: #e74c3c;
+            background: linear-gradient(to right, var(--primary), var(--accent));
             color: #fff;
             border-radius: 30px;
             font-weight: 600;
             padding: 10px 30px;
             margin-top: 20px;
             display: inline-block;
+            transition: transform 0.3s;
         }
 
         .about-text .btn:hover {
-            background-color: #c0392b;
+            transform: scale(1.05);
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        @media (max-width:992px) {
+            .statistics {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
         }
 
         /* Depoimentos */
         .testimonials-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #fdfdfd 0%, #f2f2f2 100%);
-            position: relative;
+            background: #1e1e1e;
         }
 
         .testimonials-section h2 {
-            color: #333;
-            margin-bottom: 60px;
-            font-weight: 700;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .swiper-container {
-            padding-bottom: 50px;
-            position: relative;
-            z-index: 1;
+            color: #fff;
         }
 
         .testimonial {
-            background-color: #fff;
+            background-color: #2c3e50;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
             text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.7);
         }
 
         .testimonial p {
             font-style: italic;
-            color: #555;
+            color: #ccc;
             margin: 0 0 20px;
             font-size: 1.1rem;
             line-height: 1.5;
@@ -435,7 +651,11 @@
 
         .testimonial footer {
             font-weight: bold;
-            color: #333;
+            color: #fff;
+        }
+
+        .swiper-container {
+            padding-bottom: 50px;
         }
 
         /* YouTube Section */
@@ -445,6 +665,10 @@
             width: 100%;
             height: 100vh;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
 
         .youtube-section iframe {
@@ -456,6 +680,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
             pointer-events: none;
+            filter: brightness(60%) saturate(120%);
         }
 
         .youtube-section .overlay {
@@ -464,223 +689,253 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.55);
+            background: linear-gradient(to bottom right, rgba(0,0,0,0.65), rgba(0,0,0,0.2));
             z-index: 2;
+            backdrop-filter: blur(5px);
         }
 
         .youtube-section .content {
             position: relative;
             z-index: 3;
             color: #fff;
-            text-align: center;
             padding: 40px 20px;
-            top: 50%;
-            transform: translateY(-50%);
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {opacity: 1; transform:translateY(0);}
         }
 
         .youtube-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 30px rgba(0,0,0,0.6);
         }
 
         .youtube-section p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #ffccc7;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: #ffd7d1;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .youtube-section .btn {
-            font-size: 1.1rem;
-            padding: 10px 30px;
-            border-radius: 30px;
-            background: #e74c3c;
+            font-size: 1.2rem;
+            padding: 12px 36px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
-            font-weight: bold;
-            transition: 0.3s;
+            font-weight: 700;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .youtube-section .btn:hover {
-            background: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
 
-        /* Contato */
-        .contact-section {
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #fff6f6 0%, #ffe6e6 100%);
-            text-align: center;
-            color: #333;
-            position: relative;
-        }
-
-        .contact-section h2 {
-            margin-bottom: 30px;
-            font-weight: 700;
-            font-size: 2.5rem;
-            color: #333;
-        }
-
-        .contact-section .btn {
-            font-size: 1.1rem;
-            padding: 12px 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border-radius: 30px;
-            background-color: #25D366;
-            color: #fff;
-            font-weight: 600;
-            transition: background-color 0.3s, color 0.3s;
-            margin-top: 20px;
-        }
-
-        .contact-section .btn:hover {
-            background-color: #1da954;
-        }
-
-        /* Footer */
-        .footer {
-            padding: 30px 20px;
-            background-color: #2c3e50;
-            color: #bdc3c7;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #e74c3c;
-            text-decoration: none;
-            margin: 0 10px;
-            font-weight: 500;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-
-        .footer p {
-            margin: 5px 0;
-            font-size: 0.9rem;
-        }
-
-        /* Botão back to top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: #e74c3c;
-            color: #fff;
-            padding: 15px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        .back-to-top:hover {
-            background-color: #c0392b;
-        }
-
-        .back-to-top i {
-            font-size: 1.5rem;
-        }
-
-        @media (max-width: 992px) {
-            .main-header h1 {
-                font-size: 2.4rem;
-            }
-
-            .main-header p {
-                font-size: 1.1rem;
-            }
-
-            .statistics {
-                flex-direction: column;
-                gap: 20px;
-            }
-
+        @media(max-width:992px) {
+            .youtube-section h2 {font-size: 2rem;}
             .youtube-section iframe {
                 width: 100vw;
                 height: 56.25vw;
             }
-
-            .about-content {
-                flex-direction: column;
-            }
-
-            .navbar {
-                top: 60px;
-            }
         }
 
+        /* Contato */
+        .contact-section {
+            background: #1e1e1e;
+        }
+
+        .contact-section h2 {
+            color: #fff;
+        }
+
+        .contact-section h2::before {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+            margin: 0 auto 20px;
+        }
+
+        .contact-section .btn {
+            font-size: 1.2rem;
+            padding: 14px 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #25D366, #20b955);
+            color: #fff;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 40px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-section .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 20px;
+            background: #121212;
+            color: #bdc3c7;
+            text-align: center;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: var(--primary-dark);
+        }
     </style>
 </head>
 
 <body>
-    <!-- Alert Banner -->
+    <!-- Banner Alert -->
     <div class="banner-alert" data-aos="fade-down">
-        BLACK FRIDAY: Últimos dias para garantir sua Assinatura Completa 2025 !
+        BLACK FRIDAY: Últimos dias para garantir sua Assinatura Completa 2025!
     </div>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" data-aos="fade-down" style="margin-top:40px;">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="imgs/Alan-soares.png" alt="Logo Jhoni Zini" loading="lazy">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-center" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#cursos">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#depoimentos">Depoimentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#youtube">YouTube</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contato">Contato</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="page.html">Outra Página</a>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar navbar-expand-lg">
+        <a class="navbar-brand" href="#home">
+            <img src="imgs/Alan-soares.png" alt="Logo Alan Soares" loading="lazy">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse text-center" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#cursos">Cursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#depoimentos">Depoimentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#youtube">YouTube</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contato">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="page.html">Outra Página</a>
+                </li>
+            </ul>
         </div>
     </nav>
 
+    <!-- HERO -->
     <header class="main-header" id="home">
-        <div class="container">
-            <h1 data-aos="zoom-in">Domine Exatas na sua Aprovação</h1>
-            <p data-aos="zoom-in" data-aos-delay="200">Estatística, Matemática, RLM e muito mais - tudo para seu
-                Vestibular!</p>
-            <a href="#cursos" class="btn btn-primary btn-lg" data-aos="zoom-in" data-aos-delay="400">Quero me Cadastrar
-                Agora</a>
+        <div id="particles-js"></div>
+
+        <!-- Linhas Horizontais de Fórmulas -->
+        <div class="formula-line hero-formulas-horizontal">
+            <div class="formula-item">E = mc²</div>
+            <div class="formula-item">F = m·a</div>
+            <div class="formula-item">P = W/t</div>
+            <div class="formula-item">Q = m·c·ΔT</div>
+            <div class="formula-item">W = ∫F·dx</div>
+        </div>
+
+        <div class="formula-line hero-formulas-horizontal-alt">
+            <div class="formula-item">v = d/t</div>
+            <div class="formula-item">p = m·v</div>
+            <div class="formula-item">R = V/I</div>
+            <div class="formula-item">I = q/Δt</div>
+            <div class="formula-item">g ≈ 9,8 m/s²</div>
+        </div>
+
+        <div class="formula-line hero-formulas-horizontal-alt2">
+            <div class="formula-item">λ = h/p</div>
+            <div class="formula-item">Δx·Δp ≥ ħ/2</div>
+            <div class="formula-item">E = hf</div>
+            <div class="formula-item">V = IR</div>
+            <div class="formula-item">γ = 1/√(1 - v²/c²)</div>
+        </div>
+
+        <!-- Colunas Verticais de Fórmulas -->
+        <div class="formula-column hero-formulas-vertical">
+            <div class="formula-item">E = mc²</div>
+            <div class="formula-item">F = m·a</div>
+            <div class="formula-item">Q = m·c·ΔT</div>
+            <div class="formula-item">W = ∫F·dx</div>
+        </div>
+
+        <div class="formula-column hero-formulas-vertical-alt">
+            <div class="formula-item">P = W/t</div>
+            <div class="formula-item">I = q/Δt</div>
+            <div class="formula-item">R = V/I</div>
+            <div class="formula-item">g ≈ 9,8 m/s²</div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="header-content" data-aos="zoom-in">
+            <h1>Transcenda as Leis da Física</h1>
+            <p>Domine Exatas, ultrapasse limites e brilhe como uma estrela no cosmos do conhecimento.</p>
+            <a href="#cursos" class="btn btn-primary">Iniciar Jornada</a>
         </div>
     </header>
 
-    <!-- Fórmulas -->
+    <!-- Seção de Fórmulas na Prática -->
     <section class="formula-section">
         <div class="container">
             <h2 data-aos="fade-up">Física na <span>Prática</span></h2>
             <div class="formula-marquee" data-aos="fade-up" data-aos-delay="100">
                 <div class="formula-marquee-content">
-                    <span>E = mc²</span><span>F = m·a</span><span>v = d/t</span><span>p = m·v</span><span>W = F·d</span><span>P = W/t</span><span>g ≈ 9,8 m/s²</span><span>I = q/Δt</span><span>R = V/I</span>
+                    <span>E = mc²</span><span>F = m·a</span><span>v = d/t</span><span>p = m·v</span>
+                    <span>W = F·d</span><span>P = W/t</span><span>g ≈ 9,8 m/s²</span>
+                    <span>I = q/Δt</span><span>R = V/I</span>
                 </div>
             </div>
             <p class="formula-caption" data-aos="fade-up" data-aos-delay="200">
@@ -689,18 +944,13 @@
         </div>
     </section>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-chevron-up"></i>
-    </div>
-
     <!-- Cursos -->
     <section id="cursos" class="courses-section">
         <div class="container">
             <h2 data-aos="fade-up">Cursos Disponíveis</h2>
             <div class="row">
-                <!-- Curso 1 -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <!-- Curso Exemplo -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card course-card h-100">
                         <img src="curso.jpg" class="card-img-top" alt="Curso Estatística Completa" loading="lazy">
                         <div class="card-body text-center">
@@ -710,39 +960,28 @@
                         </div>
                     </div>
                 </div>
-                <!-- Curso 2 -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <!-- Adicione mais cursos conforme necessário -->
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card course-card h-100">
-                        <img src="curso.jpg" class="card-img-top" alt="RLM Completo + 1001 Questões" loading="lazy">
+                        <img src="curso2.jpg" class="card-img-top" alt="Curso de Matemática Avançada" loading="lazy">
                         <div class="card-body text-center">
-                            <h5 class="card-title">RLM Completo + 1001 Questões</h5>
-                            <p class="card-text"><strong>R$117,00</strong></p>
+                            <h5 class="card-title">Matemática Avançada</h5>
+                            <p class="card-text"><strong>R$150,00</strong></p>
                             <a href="#" class="btn">Saiba Mais</a>
                         </div>
                     </div>
                 </div>
-                <!-- Curso 3 -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card course-card h-100">
-                        <img src="curso.jpg" class="card-img-top" alt="Assinatura Polícia Federal" loading="lazy">
+                        <img src="curso3.jpg" class="card-img-top" alt="Curso de Raciocínio Lógico" loading="lazy">
                         <div class="card-body text-center">
-                            <h5 class="card-title">Assinatura Polícia Federal</h5>
-                            <p class="card-text"><strong>R$117,00</strong></p>
+                            <h5 class="card-title">Raciocínio Lógico</h5>
+                            <p class="card-text"><strong>R$130,00</strong></p>
                             <a href="#" class="btn">Saiba Mais</a>
                         </div>
                     </div>
                 </div>
-                <!-- Curso 4 -->
-                <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                    <div class="card course-card h-100">
-                        <img src="curso.jpg" class="card-img-top" alt="Assinatura PRF" loading="lazy">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Assinatura PRF</h5>
-                            <p class="card-text"><strong>R$117,00</strong></p>
-                            <a href="#" class="btn">Saiba Mais</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Continue adicionando cursos conforme necessário -->
             </div>
         </div>
     </section>
@@ -750,14 +989,14 @@
     <!-- Sobre -->
     <section id="sobre" class="about-section">
         <div class="container">
-            <h2 data-aos="fade-up">Conheça o Professor <span style="color:#e74c3c;">Jhoni Zini</span></h2>
+            <h2 data-aos="fade-up">Conheça o Professor <span style="color:var(--accent);">Alan Soares</span></h2>
             <div class="about-content">
                 <div class="about-image" data-aos="fade-right">
-                    <img src="imgs/Alan.jpg" alt="Foto do Professor Jhoni Zini" loading="lazy">
+                    <img src="imgs/Alan.jpg" alt="Foto do Professor Alan Soares" loading="lazy">
                 </div>
                 <div class="about-text" data-aos="fade-left">
                     <p>
-                        Jhoni Zini é especialista em Matemática, Raciocínio Lógico e Estatística, com mais de 13 anos de experiência formando milhares de alunos. Sua metodologia clara e dinâmica transforma o estudo em um caminho direto para a aprovação no vestibular dos seus sonhos.
+                        Alan Soares é especialista em Matemática, Raciocínio Lógico e Estatística, com mais de 13 anos de experiência formando milhares de alunos. Sua metodologia clara e dinâmica transforma o estudo em um caminho direto para a aprovação no vestibular dos seus sonhos.
                     </p>
                     <div class="statistics">
                         <div>
@@ -767,6 +1006,10 @@
                         <div>
                             <h3>10.000+</h3>
                             <p>Alunos Aprovados</p>
+                        </div>
+                        <div>
+                            <h3>25+</h3>
+                            <p>Temas Abordados</p>
                         </div>
                     </div>
                     <a href="#contato" class="btn">Fale com o Professor</a>
@@ -781,35 +1024,34 @@
             <h2 data-aos="fade-up">O que dizem nossos alunos</h2>
             <div class="swiper-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-                    <!-- Depoimento 1 -->
+                    <!-- Depoimento Exemplo -->
                     <div class="swiper-slide">
                         <div class="testimonial">
-                            <p>"As aulas do Jhoni são incríveis! Passei no vestibular que sempre sonhei."</p>
-                            <footer>- @deborah_almeida</footer>
-                        </div>
-                    </div>
-                    <!-- Depoimento 2 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial">
-                            <p>"Didática excepcional! Finalmente entendi matérias que antes eram impossíveis."</p>
-                            <footer>- @denis_araujo</footer>
-                        </div>
-                    </div>
-                    <!-- Depoimento 3 -->
-                    <div class="swiper-slide">
-                        <div class="testimonial">
-                            <p>"Valeu, Jhoni! Sua metodologia me ajudou a conquistar minha vaga."</p>
+                            <p>"As aulas do Professor Alan são transformadoras! Consegui superar minhas expectativas e fui aprovado com excelentes notas."</p>
                             <footer>- @joao_silva</footer>
                         </div>
                     </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <p>"A metodologia do Professor Alan me ajudou a entender conceitos complexos de maneira simples e eficaz. Recomendo a todos!"</p>
+                            <footer>- @maria_oliveira</footer>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="testimonial">
+                            <p>"Graças às aulas do Professor Alan, conquistei minha vaga no curso dos meus sonhos. Muito obrigado!"</p>
+                            <footer>- @carlos_santos</footer>
+                        </div>
+                    </div>
+                    <!-- Adicione mais depoimentos conforme necessário -->
                 </div>
-                <!-- Paginação -->
+                <!-- Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
-    <!-- YouTube -->
+    <!-- YouTube Section -->
     <section id="youtube" class="youtube-section">
         <iframe
             src="https://www.youtube.com/embed/vS-qv-aqKz0?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=vS-qv-aqKz0&modestbranding=1&rel=0"
@@ -818,8 +1060,7 @@
         <div class="content" data-aos="fade-up">
             <h2>Conheça nosso canal no YouTube</h2>
             <p>youtube.com/JhoniZini</p>
-            <a href="https://www.youtube.com/JhoniZini" target="_blank" class="btn btn-danger">Confira o Conteúdo do
-                Canal</a>
+            <a href="https://www.youtube.com/JhoniZini" target="_blank" class="btn">Confira o Conteúdo do Canal</a>
         </div>
     </section>
 
@@ -827,8 +1068,7 @@
     <section id="contato" class="contact-section">
         <div class="container">
             <h2 data-aos="fade-up">Dúvidas? Fale com nossa equipe pelo WhatsApp</h2>
-            <a href="https://wa.me/SEU_NUMERO" class="btn btn-lg" target="_blank" rel="noopener" data-aos="zoom-in"
-                data-aos-delay="200">
+            <a href="https://wa.me/SEU_NUMERO" class="btn btn-lg" target="_blank" rel="noopener">
                 <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Entre em Contato
             </a>
         </div>
@@ -837,18 +1077,123 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Professor Jhoni Zini. Todos os direitos reservados.</p>
+            <p>&copy; 2025 Professor Alan Soares. Todos os direitos reservados.</p>
             <p>
-                <a href="#politica-cookies">Política de Cookies</a> | <a href="#politica-privacidade">Política de
-                    Privacidade</a>
+                <a href="#politica-cookies">Política de Cookies</a> |
+                <a href="#politica-privacidade">Política de Privacidade</a>
             </p>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- particles.js Config -->
+    <script>
+        particlesJS('particles-js',
+          {
+            "particles": {
+              "number": {
+                "value": 80,
+                "density": {
+                  "enable": true,
+                  "value_area": 800
+                }
+              },
+              "color": {
+                "value": "#ffffff"
+              },
+              "shape": {
+                "type": "circle",
+                "stroke": {
+                  "width": 0,
+                  "color": "#000000"
+                },
+                "polygon": {
+                  "nb_sides": 5
+                },
+              },
+              "opacity": {
+                "value": 0.5,
+                "random": true,
+                "anim": {
+                  "enable": false,
+                }
+              },
+              "size": {
+                "value": 3,
+                "random": true,
+                "anim": {
+                  "enable": false,
+                }
+              },
+              "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+              },
+              "move": {
+                "enable": true,
+                "speed": 3,
+                "direction": "none",
+                "random": false,
+                "straight": false,
+                "out_mode": "out",
+                "bounce": false,
+                "attract": {
+                  "enable": false,
+                }
+              }
+            },
+            "interactivity": {
+              "detect_on": "canvas",
+              "events": {
+                "onhover": {
+                  "enable": true,
+                  "mode": "repulse"
+                },
+                "onclick": {
+                  "enable": true,
+                  "mode": "push"
+                },
+                "resize": true
+              },
+              "modes": {
+                "grab": {
+                  "distance": 400,
+                  "line_linked": {
+                    "opacity": 1
+                  }
+                },
+                "bubble": {
+                  "distance": 400,
+                  "size": 40,
+                  "duration": 2,
+                  "opacity": 8,
+                  "speed": 3
+                },
+                "repulse": {
+                  "distance": 200,
+                  "duration": 0.4
+                },
+                "push": {
+                  "particles_nb": 4
+                },
+                "remove": {
+                  "particles_nb": 2
+                }
+              }
+            },
+            "retina_detect": true
+          }
+        );
+    </script>
     <script>
         // Iniciar AOS
         AOS.init({
@@ -856,7 +1201,7 @@
             once: true,
         });
 
-        // Swiper
+        // Swiper para Depoimentos
         var swiper = new Swiper('.swiper-container', {
             slidesPerView: 1,
             spaceBetween: 30,
@@ -898,5 +1243,4 @@
         });
     </script>
 </body>
-
 </html>
