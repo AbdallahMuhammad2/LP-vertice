@@ -683,129 +683,133 @@
             opacity: 0.2;
             z-index: 0;
         }
-/* Depoimentos (Testimoniais) */
-#testimonials {
-    padding: 80px 20px;
-    background: #f3f3f3;
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-}
 
-#testimonials h2 {
-    font-size: 2.4rem;
-    font-family: var(--font-heading);
-    color: var(--primary);
-    margin-bottom: 15px;
-    background: linear-gradient(45deg, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    position: relative;
-}
+        /* Depoimentos (Testimoniais) */
+        #testimonials {
+            padding: 80px 20px;
+            background: #f3f3f3;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
 
-#testimonials h2::after {
-    content: "";
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    width: 40px;
-    height: 3px;
-    background: var(--secondary);
-    transform: translateX(-50%);
-    border-radius: 2px;
-}
+        #testimonials h2 {
+            font-size: 2.4rem;
+            font-family: var(--font-heading);
+            color: var(--primary);
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            position: relative;
+        }
 
-#testimonials p {
-    color: #555;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
+        #testimonials h2::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
 
-.testimonials-grid {
-    display: grid;
-    gap: 20px; /* Espaço entre os cards */
-    /* 3 colunas em telas grandes, 2 em médias, 1 em pequenas */
-    grid-template-columns: 1fr; 
-}
+        #testimonials p {
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
 
-.testimonial-card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    cursor: pointer;
-    text-align: left;
-}
+        .testimonials-grid {
+            display: grid;
+            gap: 20px;
+            /* Espaço entre os cards */
+            /* 3 colunas em telas grandes, 2 em médias, 1 em pequenas */
+            grid-template-columns: 1fr;
+        }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
+        .testimonial-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            cursor: pointer;
+            text-align: left;
+        }
 
-.testimonial-content {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    position: relative;
-}
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-.testimonial-content::before {
-    content: "\f10d";
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    position: absolute;
-    top: -5px;
-    left: -15px;
-    font-size: 2rem;
-    color: rgba(0, 0, 0, 0.03);
-}
+        .testimonial-content {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            position: relative;
+        }
 
-.testimonial-content img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-    object-fit: cover;
-    border: 2px solid var(--primary);
-    transition: transform 0.3s ease, border-color 0.3s ease;
-}
+        .testimonial-content::before {
+            content: "\f10d";
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -5px;
+            left: -15px;
+            font-size: 2rem;
+            color: rgba(0, 0, 0, 0.03);
+        }
 
-.testimonial-content img:hover {
-    transform: scale(1.05);
-    border-color: var(--secondary);
-}
+        .testimonial-content img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
 
-.testimonial-content strong {
-    color: var(--primary);
-    font-size: 1rem;
-    font-weight: 600;
-}
+        .testimonial-content img:hover {
+            transform: scale(1.05);
+            border-color: var(--secondary);
+        }
 
-.testimonial-text {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: #555;
-    font-style: italic;
-}
+        .testimonial-content strong {
+            color: var(--primary);
+            font-size: 1rem;
+            font-weight: 600;
+        }
 
-/* Responsividade */
-@media (min-width: 768px) {
-    /* Em telas médias (tablet) ou maiores: 2 colunas */
-    .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
+        .testimonial-text {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #555;
+            font-style: italic;
+        }
 
-@media (min-width: 1024px) {
-    /* Em telas maiores (desktop): 3 colunas */
-    .testimonials-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+        /* Responsividade */
+        @media (min-width: 768px) {
+
+            /* Em telas médias (tablet) ou maiores: 2 colunas */
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+
+            /* Em telas maiores (desktop): 3 colunas */
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
 
 
         /* YouTube Section */
@@ -1393,67 +1397,89 @@
                 </div>
             </div>
         </section>
-<!-- Depoimentos (Testimoniais) -->
-<section id="testimonials" aria-labelledby="depoimentos-dos-alunos">
-    <div class="container">
-        <h2 id="depoimentos-dos-alunos" data-aos="fade-up">Depoimentos dos Alunos</h2>
-        <p data-aos="fade-up">Veja o que alunos satisfeitos dizem sobre a experiência de aprendizado.</p>
-        
-        <div class="testimonials-grid" data-aos="fade-up">
-            <!-- Depoimento 1 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/case1.jpg" alt="Foto da aluna Tay Azevedo" loading="lazy">
-                    <strong>Tay Azevedo</strong>
-                </div>
-                <p class="testimonial-text">"Fiz a prova da EBSERH e gabaritei raciocínio lógico! Cheguei na prova confiante graças ao Prof. Alan."</p>
-            </div>
-            <!-- Depoimento 2 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/student2.jpg" alt="Foto da aluna Maria Oliveira" loading="lazy">
-                    <strong>Maria Oliveira</strong>
-                </div>
-                <p class="testimonial-text">"Conteúdo de qualidade e suporte excelente. Passei no meu concurso graças a esses cursos."</p>
-            </div>
-            <!-- Depoimento 3 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/student3.jpg" alt="Foto do aluno Lucas Pereira" loading="lazy">
-                    <strong>Lucas Pereira</strong>
-                </div>
-                <p class="testimonial-text">"A didática e os exemplos práticos do professor foram essenciais. Meu rendimento melhorou muito."</p>
-            </div>
-            <!-- Depoimento 4 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/case4.jpg" alt="Foto da aluna Ana Silva" loading="lazy">
-                    <strong>Ana Silva</strong>
-                </div>
-                <p class="testimonial-text">"A metodologia do Prof. Alan é incrível. Me senti muito mais preparada para minhas provas."</p>
-            </div>
-            <!-- Depoimento 5 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/case5.jpg" alt="Foto do aluno João Souza" loading="lazy">
-                    <strong>João Souza</strong>
-                </div>
-                <p class="testimonial-text">"Exemplos claros e materiais exclusivos fizeram toda a diferença nos meus estudos."</p>
-            </div>
-            <!-- Depoimento 6 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/case6.jpg" alt="Foto da aluna Carla Mendes" loading="lazy">
-                    <strong>Carla Mendes</strong>
-                </div>
-                <p class="testimonial-text">"Indico a todos que buscam resultados reais. Não poderia estar mais satisfeita."</p>
-            </div>
-        </div>
-    </div>
-</section>
+        <!-- Depoimentos (Testimoniais) -->
+        <section id="testimonials" aria-labelledby="depoimentos-dos-alunos">
+            <div class="container">
+                <h2 id="depoimentos-dos-alunos" data-aos="fade-up">Depoimentos dos Alunos</h2>
+                <p data-aos="fade-up">Veja o que alunos satisfeitos dizem sobre a experiência de aprendizado.</p>
 
+                <div class="testimonials-grid" data-aos="fade-up">
+                    <!-- Depoimento 1 (Letícia Carvalho) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/cases/case2.jpg" alt="Foto da aluna Letícia Carvalho" loading="lazy">
+                            <strong>Letícia Carvalho</strong>
+                        </div>
+                        <p class="testimonial-text">
+                            "Não tenho palavras para agradecer tudo o que o Alan fez por mim! Hoje eu vivo um sonho de
+                            infância, que parecia distante da minha realidade: ingressar em uma universidade de
+                            medicina. Foi um prazer conhecê-lo e estudar com ele; ele nunca me deixou desistir, me fez
+                            acreditar e continuar! Foram inúmeras aprovações, com vestibulares isolados e pelo ENEM.
+                            Atingir 800+ em matemática no ENEM não foi fácil para mim, mas estudando com o Alan, eu
+                            posso dizer que consegui <3." <br><br>
+                                <em>Aprovada em Medicina</em>
+                        </p>
+                    </div>
+                    <!-- Depoimento 3 (Evelyn) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/cases/case1.jpg" alt="Foto da aluna Tay Azevedo" loading="lazy">
+                            <strong>Tay Azevedo</strong>
+                        </div>
+                        <p class="testimonial-text">"Fiz a prova da EBSERH e gabaritei raciocínio lógico! Cheguei na
+                            prova confiante graças ao Prof. Alan."</p>
 
+                    </div>
 
+                    <!-- Depoimento 2 (Miriam) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/cases/case3.png" alt="Foto da aluna Miriam" loading="lazy">
+                            <strong>Miriam</strong>
+                        </div>
+                        <p class="testimonial-text">
+                            "Professor, comprei a mentoria do professor Geda, e estou adorando suas aulas. Agora sim,
+                            estou entendendo RLM. 🙏🙏🙏❤️"
+                        </p>
+                    </div>
+
+                    <!-- Depoimento 3 (Evelyn) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/evelyn.jpg" alt="Foto da aluna Evelyn" loading="lazy">
+                            <strong>Evelyn</strong>
+                        </div>
+                        <p class="testimonial-text">
+                            "Estou no curso intensivo da EBSERH, e estou amando as aulas de RLM. Só gratidão professor."
+                        </p>
+                    </div>
+
+                    <!-- Depoimento 5 (Jaque) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/jaque.jpg" alt="Foto da aluna Jaque" loading="lazy">
+                            <strong>Jaque</strong>
+                        </div>
+                        <p class="testimonial-text">
+                            "Prof sua aula é fenomenal! Nunca imaginei que conseguiria absorver o conteúdo de RLM de
+                            forma tão clara. Obrigada!!!"
+                        </p>
+                    </div>
+
+                    <!-- Depoimento 6 (Adicional) -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <img src="imgs/case2.jpg" alt="Foto de outro aluno satisfeito" loading="lazy">
+                            <strong>Aluno(a) do Prepara</strong>
+                        </div>
+                        <p class="testimonial-text">
+                            "A abordagem do professor facilita demais o entendimento. Sinto que evoluí muito em pouco
+                            tempo!"
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- YouTube Section -->
         <section id="youtube" aria-labelledby="youtube-section">
@@ -1608,30 +1634,30 @@
                 statsCounters.forEach(counter => countUp(counter));
             }
 
-           // Swiper Testimonials
-const swiper = new Swiper('.swiper-container', {
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    slidesPerView: 1,
-    spaceBetween: 20, // Menos espaço entre os depoimentos
-    breakpoints: {
-        576: { slidesPerView: 1 },
-        768: { slidesPerView: 2 }, // Em telas médias, mostra 2 depoimentos ao mesmo tempo
-        1024: { slidesPerView: 3 } // Em telas maiores, mostra 3 depoimentos ao mesmo tempo
-    }
-});
+            // Swiper Testimonials
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                slidesPerView: 1,
+                spaceBetween: 20, // Menos espaço entre os depoimentos
+                breakpoints: {
+                    576: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 }, // Em telas médias, mostra 2 depoimentos ao mesmo tempo
+                    1024: { slidesPerView: 3 } // Em telas maiores, mostra 3 depoimentos ao mesmo tempo
+                }
+            });
 
 
 
