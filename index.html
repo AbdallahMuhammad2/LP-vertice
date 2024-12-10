@@ -197,7 +197,8 @@
                 left: 0;
                 right: 0;
                 bottom: 0;
-                z-index: 1050; /* Ajuste para ficar abaixo do navbar */
+                z-index: 1050;
+                /* Ajuste para ficar abaixo do navbar */
                 padding: 60px 20px;
                 display: flex !important;
                 flex-direction: column;
@@ -424,134 +425,120 @@
             }
         }
 
-        /* Cursos */
-        #courses {
-            padding: 100px 20px;
-            position: relative;
-            background: linear-gradient(120deg, #111, #141414, #111);
-            background-size: 200% 200%;
-            animation: coursesBg 10s linear infinite;
+        .course-badge {
+            display: inline-block;
+            background: var(--secondary);
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            animation: pulseBadge 2s infinite;
         }
 
-        @keyframes coursesBg {
-            0% {
-                background-position: 0% 50%;
+        @keyframes pulseBadge {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 var(--secondary);
             }
 
             50% {
-                background-position: 100% 50%;
-            }
-
-            100% {
-                background-position: 0% 50%;
+                transform: scale(1.05);
+                box-shadow: 0 0 10px var(--secondary);
             }
         }
 
-        #courses h2 {
-            font-family: var(--font-heading);
-            font-size: 2.6rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-            text-align: center;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
+        .course-price {
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #aaa;
+            opacity: 0.7;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+
+        .new-price {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--secondary), #ff7b99);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            position: relative;
-            display: inline-block;
-        }
-
-        #courses h2::after {
-            content: "";
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            width: 50px;
-            height: 4px;
-            background: var(--secondary);
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        #courses p {
-            font-size: 1.2rem;
-            color: #ccc;
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-
-        .course-card {
-            background: rgba(26, 26, 26, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            height: 100%;
-            position: relative;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .course-card:hover {
-            transform: translateY(-10px) rotateY(3deg) rotateX(2deg);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .course-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-
-        .course-card:hover img {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-        }
-
-        .course-card h5 {
-            font-size: 1.6rem;
-            margin-bottom: 10px;
-            color: var(--primary);
-            font-family: var(--font-heading);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .course-card p {
-            color: #aaa;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .course-card .btn {
-            background: linear-gradient(135deg, var(--secondary), #ff7b99);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            transition: background 0.3s ease, transform 0.3s ease;
-        }
-
-        .course-card .btn:hover {
-            background: linear-gradient(135deg, #ff7b99, var(--secondary));
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
         }
 
         @media (max-width: 576px) {
-            #courses h2 {
-                font-size: 2rem;
+            .course-badge {
+                font-size: 0.8rem;
+                padding: 4px 8px;
             }
 
-            #courses p {
+            .old-price {
+                font-size: 0.85rem;
+            }
+
+            .new-price {
                 font-size: 1rem;
             }
+        }
 
-            .course-card .btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
+        .btn-saiba-mais {
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            background: linear-gradient(45deg, var(--secondary), #ff7b99);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .btn-saiba-mais::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.15);
+            transition: all 0.75s ease;
+            transform: translate(-50%, -50%) scale(0);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .btn-saiba-mais:hover::after {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .btn-saiba-mais:hover {
+            background: linear-gradient(45deg, #ff7b99, var(--secondary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-saiba-mais i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-saiba-mais:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 576px) {
+            .btn-saiba-mais {
+                padding: 8px 16px;
+                font-size: 0.9rem;
             }
         }
 
@@ -1027,7 +1014,6 @@
             position: absolute;
             inset: -30px;
             border-radius: 50%;
-            background: radial-gradient(var(--secondary), transparent 60%);
             transform: scale(0);
             transition: transform 0.6s ease;
             z-index: 0;
@@ -1038,8 +1024,7 @@
         }
 
         #youtube .btn:hover {
-            background: #c0392b;
-            box-shadow: 0 0 25px rgba(192, 57, 43, 0.7);
+            box-shadow: 0 0 25px rgba(255, 255, 254, 0.7);
         }
 
         /* CTA */
@@ -1320,8 +1305,8 @@
                         <a class="nav-link" href="#contact">Contato</a>
                     </li>
                     <li class="nav-item ms-3">
-                        <a href="page.html" class="btn btn-cta" role="button" aria-label="Página Adicional">Outra
-                            Página</a>
+                        <a href="page.html" class="btn btn-cta" role="button" aria-label="Página Adicional">Quero ser
+                            aluno</a>
                     </li>
                 </ul>
             </div>
@@ -1361,65 +1346,63 @@
         <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </div>
 
-    <!-- Cursos -->
-    <main>
-        <section id="courses" aria-labelledby="nossos-cursos">
-            <div class="container">
-                <h2 id="nossos-cursos" data-aos="fade-up">Nossos Cursos</h2>
-                <p data-aos="fade-up">Conteúdos desenvolvidos para simplificar o entendimento de exatas e maximizar seu
-                    desempenho em provas.</p>
-                <div class="row g-5" data-aos="fade-up">
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-                        <div class="card course-card h-100">
-                            <img src="curso1.jpg" class="card-img-top" alt="Capa do curso de Estatística Completa"
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Estatística Completa</h5>
-                                <p>R$117,00</p>
-                                <a href="estatistica-completa.html" class="btn" role="button"><i
-                                        class="fas fa-info-circle me-2"></i>Saiba Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-                        <div class="card course-card h-100">
-                            <img src="curso2.jpg" class="card-img-top" alt="Capa do curso RLM Completo + 1001 Questões"
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">RLM Completo + 1001 Questões</h5>
-                                <p>R$117,00</p>
-                                <a href="rlm-1001-questoes.html" class="btn" role="button"><i
-                                        class="fas fa-info-circle me-2"></i>Saiba Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-                        <div class="card course-card h-100">
-                            <img src="curso3.jpg" class="card-img-top" alt="Capa do curso Assinatura Polícia Federal"
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Assinatura Polícia Federal</h5>
-                                <p>R$117,00</p>
-                                <a href="assinatura-policia-federal.html" class="btn" role="button"><i
-                                        class="fas fa-info-circle me-2"></i>Saiba Mais</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
-                        <div class="card course-card h-100">
-                            <img src="curso4.jpg" class="card-img-top" alt="Capa do curso Assinatura PRF"
-                                loading="lazy">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Assinatura PRF</h5>
-                                <p>R$117,00</p>
-                                <a href="assinatura-prf.html" class="btn" role="button"><i
-                                        class="fas fa-info-circle me-2"></i>Saiba Mais</a>
-                            </div>
-                        </div>
-                    </div>
+    <main <div class="row mt-1 g-5 justify-content-center" data-aos="fade-up">
+        <!-- Curso 1 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+            <div class="card course-card h-100">
+                <img src="imgs/midia1.jpg" class="card-img-top" alt="Capa do curso de Estatística Completa"
+                    loading="lazy">
+                <div class="card-body text-center">
+                    <span class="course-badge">Oferta!</span>
+                    <h5 class="card-title">RLM completo + Questões por Bancas</h5>
+                    <p class="course-price">
+                        <span class="old-price">De R$ 397,00</span>
+                        <span class="new-price">por R$ 147,00</span>
+                    </p>
+                    <a href="RLM-Completo.html" class="btn btn-saiba-mais" role="button">
+                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                    </a>
+
                 </div>
             </div>
-        </section>
+        </div>
+        <!-- Curso 2 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+            <div class="card course-card h-100">
+                <img src="curso2.jpg" class="card-img-top" alt="Capa do curso Matemática Básica + Questões por Bancas"
+                    loading="lazy">
+                <div class="card-body text-center">
+                    <span class="course-badge">Oferta!</span>
+                    <h5 class="card-title">Matemática Básica + Questões por Bancas</h5>
+                    <p class="course-price">
+                        <span class="old-price">De R$ 397,00</span>
+                        <span class="new-price">por R$ 147,00</span>
+                    </p>
+                    <a href="rlm-1001-questoes.html" class="btn btn-saiba-mais" role="button">
+                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Curso 3 -->
+        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+            <div class="card course-card h-100">
+                <img src="imgs/midia.jpg" class="card-img-top" alt="Capa do curso Assinatura Premium: Exatas do Zero"
+                    loading="lazy">
+                <div class="card-body text-center">
+                    <span class="course-badge">Oferta!</span>
+                    <h5 class="card-title">Assinatura Premium: Exatas do Zero</h5>
+                    <p class="course-price">
+                        <span class="old-price">De R$ 997,00</span>
+                        <span class="new-price">por R$ 397,00</span>
+                    </p>
+                    <a href="assinatura-policia-federal.html" class="btn btn-saiba-mais" role="button">
+                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
 
         <!-- Sobre -->
         <section id="about" aria-labelledby="sobre-o-professor">
@@ -1541,19 +1524,26 @@
 
         <!-- YouTube Section -->
         <section id="youtube" aria-labelledby="youtube-section">
-            <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=VIDEO_ID&modestbranding=1&rel=0"
-                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
-                title="Video de Apresentação"></iframe>
+            <!-- Vídeo de Fundo -->
+            <div class="video-background">
+                <iframe
+                    src="https://www.youtube.com/embed/98PaRzF1ky8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=98PaRzF1ky8&modestbranding=1&rel=0&fs=0&iv_load_policy=3"
+                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
+                    title="Operação TJ SP: Raciocínio Lógico - Prof. Alan Soares"></iframe>
+            </div>
+            <!-- Overlay para Escurecer o Vídeo -->
             <div class="overlay" aria-hidden="true"></div>
+            <!-- Conteúdo Sobreposto -->
             <div class="content" data-aos="fade-up">
                 <h2 id="youtube-section">Conheça nosso Canal no YouTube</h2>
                 <p>Assista a aulas, dicas e conteúdos gratuitos.</p>
                 <a href="https://www.youtube.com/JhoniZini" target="_blank" rel="noopener noreferrer"
-                    class="btn btn-danger" role="button" aria-label="Visitar canal no YouTube"><i
-                        class="fas fa-play me-2" aria-hidden="true"></i>Visitar Canal</a>
+                    class="btn btn-danger" role="button" aria-label="Visitar canal no YouTube">
+                    <i class="fas fa-play me-2" aria-hidden="true"></i>Visitar Canal
+                </a>
             </div>
         </section>
+
 
         <!-- CTA -->
         <section class="cta" aria-labelledby="call-to-action">
