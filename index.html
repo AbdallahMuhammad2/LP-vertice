@@ -488,6 +488,7 @@
                 radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
             background-size: 40px 40px;
             background-repeat: repeat;
+            color: #ddd;
         }
 
         #about::before {
@@ -503,7 +504,7 @@
             z-index: 0;
         }
 
-        #about h2 {
+        .section-title {
             text-align: center;
             margin-bottom: 60px;
             font-size: 2.6rem;
@@ -513,10 +514,9 @@
             -webkit-text-fill-color: transparent;
             position: relative;
             display: inline-block;
-            z-index: 2;
         }
 
-        #about h2::after {
+        .section-title::after {
             content: "";
             position: absolute;
             bottom: -8px;
@@ -540,7 +540,6 @@
         .about-image {
             flex: 1 1 300px;
             text-align: center;
-            z-index: 1;
             position: relative;
             display: flex;
             justify-content: center;
@@ -564,25 +563,25 @@
             height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            position: relative;
-            z-index: 1;
             transition: transform 0.5s ease, filter 0.5s ease;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .professor-img-container:hover img {
+        .professor-img-container:hover img,
+        .professor-img-container:focus img {
             transform: scale(1.05);
             filter: brightness(1.1);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
         }
 
-        .professor-img-container:hover {
+        .professor-img-container:hover,
+        .professor-img-container:focus {
             transform: translateY(-5px);
         }
 
         .about-text {
             flex: 1 1 500px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             padding: 40px;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -607,28 +606,12 @@
 
         .about-text p {
             font-size: 1.2rem;
-            color: #ddd;
             line-height: 1.7;
             margin-bottom: 20px;
             z-index: 1;
             position: relative;
         }
 
-        .about-text .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            font-weight: bold;
-            font-size: 1rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .about-text .btn-primary:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Estatísticas */
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -653,22 +636,7 @@
             cursor: pointer;
         }
 
-        .stat-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-
-        .stat-info {
-            color: #fff;
-        }
-
-        .stat-number {
-            font-size: 1.8rem;
-            font-weight: bold;
-            display: block;
-        }
-
+        .stat-card:focus,
         .stat-card:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
@@ -684,6 +652,128 @@
             z-index: 0;
         }
 
+        .stat-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .stat-info {
+            color: #fff;
+            z-index: 1;
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            font-weight: bold;
+            font-size: 1rem;
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        .btn-primary i {
+            transition: margin 0.3s ease;
+        }
+
+        .btn-primary:hover i,
+        .btn-primary:focus i {
+            margin-right: 8px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text {
+                padding: 30px 20px;
+            }
+
+            .professor-img-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Ajustes adicionais para celulares */
+        @media (max-width: 576px) {
+            .header-container {
+                padding: 1rem;
+            }
+
+            .text-content h1 {
+                font-size: 2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .header-image-container {
+                width: 200px;
+                height: 200px;
+            }
+
+            #courses h2,
+            #testimonials h2,
+            .cta h2,
+            #about h2,
+            #youtube h2 {
+                font-size: 2rem;
+            }
+
+            .course-card .btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta p {
+                font-size: 1rem;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .btn-primary {
+                font-size: 0.95rem;
+                padding: 10px 20px;
+            }
+        }
+
         /* Depoimentos (Testimoniais) */
         #testimonials {
             padding: 80px 20px;
@@ -691,6 +781,7 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            color: #333;
         }
 
         #testimonials h2 {
@@ -728,8 +819,6 @@
         .testimonials-grid {
             display: grid;
             gap: 20px;
-            /* Espaço entre os cards */
-            /* 3 colunas em telas grandes, 2 em médias, 1 em pequenas */
             grid-template-columns: 1fr;
         }
 
@@ -794,23 +883,17 @@
             font-style: italic;
         }
 
-        /* Responsividade */
         @media (min-width: 768px) {
-
-            /* Em telas médias (tablet) ou maiores: 2 colunas */
             .testimonials-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (min-width: 1024px) {
-
-            /* Em telas maiores (desktop): 3 colunas */
             .testimonials-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-
 
         /* YouTube Section */
         #youtube {
@@ -1126,52 +1209,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Responsividade */
-        @media (max-width:992px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .text-content h1 {
-                font-size: 2.2rem;
-            }
-
-            #about h2,
-            #courses h2,
-            #testimonials h2,
-            #youtube h2,
-            .cta h2 {
-                font-size: 2.2rem;
-            }
-        }
-
-        @media (max-width:576px) {
-            .text-content h1 {
-                font-size: 2rem;
-            }
-
-            .text-content p {
-                font-size: 1rem;
-            }
-
-            .header-image-container {
-                width: 200px;
-                height: 200px;
-            }
-
-            #courses h2,
-            #testimonials h2,
-            .cta h2 {
-                font-size: 1.8rem;
-            }
-
-            .course-card .btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-        }
-
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -1397,6 +1434,7 @@
                 </div>
             </div>
         </section>
+
         <!-- Depoimentos (Testimoniais) -->
         <section id="testimonials" aria-labelledby="depoimentos-dos-alunos">
             <div class="container">
@@ -1404,7 +1442,7 @@
                 <p data-aos="fade-up">Veja o que alunos satisfeitos dizem sobre a experiência de aprendizado.</p>
 
                 <div class="testimonials-grid" data-aos="fade-up">
-                    <!-- Depoimento 1 (Letícia Carvalho) -->
+                    <!-- Depoimento 1 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case2.jpg" alt="Foto da aluna Letícia Carvalho" loading="lazy">
@@ -1417,10 +1455,11 @@
                             acreditar e continuar! Foram inúmeras aprovações, com vestibulares isolados e pelo ENEM.
                             Atingir 800+ em matemática no ENEM não foi fácil para mim, mas estudando com o Alan, eu
                             posso dizer que consegui <3." <br><br>
-                                <em>Aprovada em Medicina</em>
+                            <em>Aprovada em Medicina</em>
                         </p>
                     </div>
-                    <!-- Depoimento 3 (Evelyn) -->
+
+                    <!-- Depoimento 2 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case1.jpg" alt="Foto da aluna Tay Azevedo" loading="lazy">
@@ -1428,10 +1467,9 @@
                         </div>
                         <p class="testimonial-text">"Fiz a prova da EBSERH e gabaritei raciocínio lógico! Cheguei na
                             prova confiante graças ao Prof. Alan."</p>
-
                     </div>
 
-                    <!-- Depoimento 2 (Miriam) -->
+                    <!-- Depoimento 3 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case3.png" alt="Foto da aluna Miriam" loading="lazy">
@@ -1443,7 +1481,7 @@
                         </p>
                     </div>
 
-                    <!-- Depoimento 3 (Evelyn) -->
+                    <!-- Depoimento 4 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/evelyn.jpg" alt="Foto da aluna Evelyn" loading="lazy">
@@ -1454,7 +1492,7 @@
                         </p>
                     </div>
 
-                    <!-- Depoimento 5 (Jaque) -->
+                    <!-- Depoimento 5 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/jaque.jpg" alt="Foto da aluna Jaque" loading="lazy">
@@ -1466,7 +1504,7 @@
                         </p>
                     </div>
 
-                    <!-- Depoimento 6 (Adicional) -->
+                    <!-- Depoimento 6 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/case2.jpg" alt="Foto de outro aluno satisfeito" loading="lazy">
@@ -1620,7 +1658,6 @@
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting && !countersStarted) {
-                            console.log("Iniciando contagem das estatísticas...");
                             statsCounters.forEach(counter => countUp(counter));
                             countersStarted = true;
                             observer.unobserve(aboutSection);
@@ -1630,11 +1667,11 @@
 
                 observer.observe(aboutSection);
             } else {
-                // Fallback: caso o navegador não suporte IntersectionObserver
+                // Fallback caso o navegador não suporte IntersectionObserver
                 statsCounters.forEach(counter => countUp(counter));
             }
 
-            // Swiper Testimonials
+            // Swiper (se houver necessidade)
             const swiper = new Swiper('.swiper-container', {
                 loop: true,
                 autoplay: {
@@ -1651,15 +1688,13 @@
                     prevEl: '.swiper-button-prev',
                 },
                 slidesPerView: 1,
-                spaceBetween: 20, // Menos espaço entre os depoimentos
+                spaceBetween: 20,
                 breakpoints: {
                     576: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 }, // Em telas médias, mostra 2 depoimentos ao mesmo tempo
-                    1024: { slidesPerView: 3 } // Em telas maiores, mostra 3 depoimentos ao mesmo tempo
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
                 }
             });
-
-
 
             gsap.registerPlugin(ScrollTrigger);
 
@@ -1689,7 +1724,7 @@
                 "retina_detect": true
             });
 
-            // Back to Top Button
+            // Botão Back to Top
             const backToTopButton = document.getElementById('backToTop');
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
