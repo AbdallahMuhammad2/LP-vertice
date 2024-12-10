@@ -185,23 +185,36 @@
 
             .navbar-toggler {
                 border: none;
-                font-size: 1.2rem;
+                font-size: 1.5rem;
                 color: #fff;
             }
 
+            /* Melhorar fundo do menu mobile */
             .navbar-collapse.show {
-                background: #000;
+                background: rgba(0, 0, 0, 0.95);
                 position: fixed;
                 top: var(--navbar-height);
                 left: 0;
                 right: 0;
                 bottom: 0;
-                z-index: 9999;
-                padding: 50px 20px;
+                z-index: 1050; /* Ajuste para ficar abaixo do navbar */
+                padding: 60px 20px;
                 display: flex !important;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                animation: fadeIn 0.3s ease forwards;
+            }
+
+            /* Adicionar animação para o menu mobile */
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
             }
 
             .navbar-nav {
@@ -221,8 +234,12 @@
                 margin-top: 20px;
                 font-size: 1.1rem;
             }
-        }
 
+            /* Prevenir scroll do corpo quando o menu estiver aberto */
+            body.nav-open {
+                overflow: hidden;
+            }
+        }
 
         header {
             position: relative;
@@ -544,7 +561,8 @@
             background: linear-gradient(120deg, #121212, #1e1e1e);
             position: relative;
             overflow: hidden;
-            background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 2px, transparent 2px),
+            background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05) 2px,
+                    transparent 2px),
                 radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
             background-size: 40px 40px;
             background-repeat: repeat;
@@ -1611,6 +1629,13 @@
                             top: offset,
                             behavior: 'smooth'
                         });
+
+                        // Fechar o menu mobile após clicar
+                        const navbarToggler = document.querySelector('.navbar-toggler');
+                        const navbarCollapse = document.querySelector('.navbar-collapse');
+                        if (navbarCollapse.classList.contains('show')) {
+                            navbarToggler.click();
+                        }
                     }
                 });
             });
@@ -1706,6 +1731,14 @@
                     top: 0,
                     behavior: 'smooth'
                 });
+            });
+
+            // Prevenir scroll do corpo quando o menu estiver aberto
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+
+            navbarToggler.addEventListener('click', () => {
+                document.body.classList.toggle('nav-open');
             });
         });
     </script>
