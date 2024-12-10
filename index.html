@@ -177,24 +177,53 @@
             transform: translateY(-3px);
         }
 
-        @media (max-width: 992px) {
-            .navbar .btn-cta {
-                display: none;
-            }
-        }
-
+        /* Ajustes no menu mobile */
         @media (max-width: 576px) {
             .navbar {
                 padding: 0 15px;
             }
 
-            .navbar .nav-link {
-                margin: 0 10px;
-                font-size: 0.9rem;
+            .navbar-toggler {
+                border: none;
+                font-size: 1.2rem;
+                color: #fff;
+            }
+
+            .navbar-collapse.show {
+                background: #000;
+                position: fixed;
+                top: var(--navbar-height);
+                left: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 9999;
+                padding: 50px 20px;
+                display: flex !important;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .navbar-nav {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .nav-link {
+                font-size: 1.2rem;
+                margin: 0;
+                padding: 10px 0;
+            }
+
+            .navbar .btn-cta {
+                display: block;
+                margin-top: 20px;
+                font-size: 1.1rem;
             }
         }
 
-        /* Header Principal */
+
         header {
             position: relative;
             min-height: 100vh;
@@ -205,7 +234,6 @@
             background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
         }
 
-        /* Vídeo de Fundo */
         .video-background {
             position: absolute;
             top: 0;
@@ -217,7 +245,13 @@
             opacity: 0.4;
         }
 
-        /* Partículas de Fundo */
+        /* Remover o vídeo no mobile */
+        @media (max-width: 576px) {
+            .video-background {
+                display: none;
+            }
+        }
+
         #particles-js {
             position: absolute;
             top: 0;
@@ -227,7 +261,6 @@
             z-index: 1;
         }
 
-        /* Sobreposição de Gradiente */
         .header-overlay {
             position: absolute;
             top: 0;
@@ -239,7 +272,6 @@
             backdrop-filter: blur(5px);
         }
 
-        /* Conteúdo do Header */
         .header-container {
             position: relative;
             z-index: 3;
@@ -250,7 +282,6 @@
             flex-wrap: wrap;
         }
 
-        /* Texto do Header */
         .text-content {
             flex: 1 1 500px;
             color: #fff;
@@ -277,7 +308,6 @@
             animation: fadeInUp 1.5s ease;
         }
 
-        /* Botão do Header */
         .text-content .btn-cta {
             padding: 12px 30px;
             font-size: 1rem;
@@ -296,7 +326,6 @@
             background: linear-gradient(135deg, var(--secondary), var(--primary));
         }
 
-        /* Conteúdo de Imagem do Header */
         .image-content {
             flex: 1 1 300px;
             display: flex;
@@ -359,6 +388,22 @@
             100% {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        /* Ajustes de header no mobile */
+        @media (max-width: 576px) {
+            .text-content h1 {
+                font-size: 2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .header-image-container {
+                width: 200px;
+                height: 200px;
             }
         }
 
@@ -476,6 +521,21 @@
             background: linear-gradient(135deg, #ff7b99, var(--secondary));
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 8px 20px rgba(255, 0, 0, 0.2);
+        }
+
+        @media (max-width: 576px) {
+            #courses h2 {
+                font-size: 2rem;
+            }
+
+            #courses p {
+                font-size: 1rem;
+            }
+
+            .course-card .btn {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
         }
 
         /* Sobre o Professor */
@@ -612,6 +672,26 @@
             position: relative;
         }
 
+        @media (max-width: 576px) {
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-text {
+                padding: 30px 20px;
+            }
+
+            .about-text p {
+                font-size: 1rem;
+            }
+
+            .professor-img-container {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
         .stats {
             display: flex;
             flex-wrap: wrap;
@@ -700,78 +780,6 @@
         .btn-primary:hover i,
         .btn-primary:focus i {
             margin-right: 8px;
-        }
-
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .about-wrapper {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .about-text {
-                padding: 30px 20px;
-            }
-
-            .professor-img-container {
-                width: 250px;
-                height: 250px;
-            }
-
-            .stats {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-
-        /* Ajustes adicionais para celulares */
-        @media (max-width: 576px) {
-            .header-container {
-                padding: 1rem;
-            }
-
-            .text-content h1 {
-                font-size: 2rem;
-            }
-
-            .text-content p {
-                font-size: 1rem;
-            }
-
-            .header-image-container {
-                width: 200px;
-                height: 200px;
-            }
-
-            #courses h2,
-            #testimonials h2,
-            .cta h2,
-            #about h2,
-            #youtube h2 {
-                font-size: 2rem;
-            }
-
-            .course-card .btn {
-                padding: 8px 20px;
-                font-size: 0.85rem;
-            }
-
-            .cta h2 {
-                font-size: 1.8rem;
-            }
-
-            .cta p {
-                font-size: 1rem;
-            }
-
-            .about-text p {
-                font-size: 1rem;
-            }
-
-            .btn-primary {
-                font-size: 0.95rem;
-                padding: 10px 20px;
-            }
         }
 
         /* Depoimentos (Testimoniais) */
@@ -1124,6 +1132,16 @@
             box-shadow: 0 0 20px var(--secondary);
         }
 
+        @media (max-width: 576px) {
+            .cta h2 {
+                font-size: 1.8rem;
+            }
+
+            .cta p {
+                font-size: 1rem;
+            }
+        }
+
         /* Footer */
         footer {
             background: var(--footer-bg);
@@ -1261,7 +1279,7 @@
             </a>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto align-items-center">
@@ -1283,7 +1301,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contato</a>
                     </li>
-                    <!-- Botão adicional que leva para outra página -->
                     <li class="nav-item ms-3">
                         <a href="page.html" class="btn btn-cta" role="button" aria-label="Página Adicional">Outra
                             Página</a>
@@ -1442,7 +1459,6 @@
                 <p data-aos="fade-up">Veja o que alunos satisfeitos dizem sobre a experiência de aprendizado.</p>
 
                 <div class="testimonials-grid" data-aos="fade-up">
-                    <!-- Depoimento 1 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case2.jpg" alt="Foto da aluna Letícia Carvalho" loading="lazy">
@@ -1450,69 +1466,55 @@
                         </div>
                         <p class="testimonial-text">
                             "Não tenho palavras para agradecer tudo o que o Alan fez por mim! Hoje eu vivo um sonho de
-                            infância, que parecia distante da minha realidade: ingressar em uma universidade de
-                            medicina. Foi um prazer conhecê-lo e estudar com ele; ele nunca me deixou desistir, me fez
-                            acreditar e continuar! Foram inúmeras aprovações, com vestibulares isolados e pelo ENEM.
-                            Atingir 800+ em matemática no ENEM não foi fácil para mim, mas estudando com o Alan, eu
-                            posso dizer que consegui <3." <br><br>
-                            <em>Aprovada em Medicina</em>
+                            infância: ingressar em uma universidade de medicina. (...)"
                         </p>
                     </div>
 
-                    <!-- Depoimento 2 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case1.jpg" alt="Foto da aluna Tay Azevedo" loading="lazy">
                             <strong>Tay Azevedo</strong>
                         </div>
-                        <p class="testimonial-text">"Fiz a prova da EBSERH e gabaritei raciocínio lógico! Cheguei na
-                            prova confiante graças ao Prof. Alan."</p>
+                        <p class="testimonial-text">"Fiz a prova da EBSERH e gabaritei raciocínio lógico! (...)"</p>
                     </div>
 
-                    <!-- Depoimento 3 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/cases/case3.png" alt="Foto da aluna Miriam" loading="lazy">
                             <strong>Miriam</strong>
                         </div>
                         <p class="testimonial-text">
-                            "Professor, comprei a mentoria do professor Geda, e estou adorando suas aulas. Agora sim,
-                            estou entendendo RLM. 🙏🙏🙏❤️"
+                            "Professor, comprei a mentoria e estou adorando suas aulas. Agora sim, entendo RLM. 🙏"
                         </p>
                     </div>
 
-                    <!-- Depoimento 4 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/evelyn.jpg" alt="Foto da aluna Evelyn" loading="lazy">
                             <strong>Evelyn</strong>
                         </div>
                         <p class="testimonial-text">
-                            "Estou no curso intensivo da EBSERH, e estou amando as aulas de RLM. Só gratidão professor."
+                            "Estou no curso intensivo da EBSERH, amando as aulas de RLM. Gratidão, professor."
                         </p>
                     </div>
 
-                    <!-- Depoimento 5 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/jaque.jpg" alt="Foto da aluna Jaque" loading="lazy">
                             <strong>Jaque</strong>
                         </div>
                         <p class="testimonial-text">
-                            "Prof sua aula é fenomenal! Nunca imaginei que conseguiria absorver o conteúdo de RLM de
-                            forma tão clara. Obrigada!!!"
+                            "Prof sua aula é fenomenal! Nunca imaginei absorver RLM tão claramente. Obrigada!"
                         </p>
                     </div>
 
-                    <!-- Depoimento 6 -->
                     <div class="testimonial-card">
                         <div class="testimonial-content">
                             <img src="imgs/case2.jpg" alt="Foto de outro aluno satisfeito" loading="lazy">
                             <strong>Aluno(a) do Prepara</strong>
                         </div>
                         <p class="testimonial-text">
-                            "A abordagem do professor facilita demais o entendimento. Sinto que evoluí muito em pouco
-                            tempo!"
+                            "A abordagem do professor facilita demais o entendimento. Evoluí muito em pouco tempo!"
                         </p>
                     </div>
                 </div>
@@ -1601,9 +1603,9 @@
             // Scroll Suave para links internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
+                        e.preventDefault();
                         const offset = target.getBoundingClientRect().top + window.pageYOffset - 120;
                         window.scrollTo({
                             top: offset,
@@ -1653,7 +1655,7 @@
             let countersStarted = false;
             const aboutSection = document.getElementById('about');
 
-            // Usando IntersectionObserver para iniciar a contagem quando a seção "Sobre" entrar na tela
+            // Usando IntersectionObserver
             if ('IntersectionObserver' in window) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -1667,36 +1669,9 @@
 
                 observer.observe(aboutSection);
             } else {
-                // Fallback caso o navegador não suporte IntersectionObserver
+                // Fallback
                 statsCounters.forEach(counter => countUp(counter));
             }
-
-            // Swiper (se houver necessidade)
-            const swiper = new Swiper('.swiper-container', {
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false,
-                },
-                pagination: {
-                    el: '.swiper-pagination',
-                    clickable: true,
-                    dynamicBullets: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
-                slidesPerView: 1,
-                spaceBetween: 20,
-                breakpoints: {
-                    576: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 }
-                }
-            });
-
-            gsap.registerPlugin(ScrollTrigger);
 
             // Particles.js
             particlesJS("particles-js", {
