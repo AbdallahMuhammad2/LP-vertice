@@ -50,32 +50,331 @@
             --primary: #6C63FF;
             --secondary: #FF6584;
             --background: #121212;
-            --text-light: #dddddd;
+            --text-light: #f0f0f0;
             --text-dark: #333333;
             --navbar-height: 80px;
             --footer-bg: #1e1e1e;
             --card-bg: #1e1e1e;
             --overlay-bg: rgba(18, 18, 18, 0.7);
-            --transition-speed: 0.3s;
+            --transition-speed: 0.4s;
             --font-heading: 'Montserrat', sans-serif;
             --font-body: 'Poppins', sans-serif;
             --shadow-light: rgba(0, 0, 0, 0.1);
             --shadow-dark: rgba(0, 0, 0, 0.5);
-            --btn-shadow: rgba(0, 0, 0, 0.2);
+            --btn-shadow: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
             font-family: var(--font-body);
-            background: linear-gradient(120deg, #141414, #1c1c1c, #111111);
-            background-size: 600% 600%;
-            animation: gradientAnim 20s ease infinite;
-            color: #fff;
+            background: var(--background);
+            color: var(--text-light);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
         }
 
-        @keyframes gradientAnim {
+        .navbar {
+            background: rgba(0, 0, 0, 0.6);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            transition: background var(--transition-speed), box-shadow var(--transition-speed);
+            height: var(--navbar-height);
+            position: fixed;
+            width: 100%;
+            top: 10;
+            z-index: 1500;
+            padding: 0 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar.scrolled {
+            background: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .navbar .navbar-brand img {
+            height: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .navbar .navbar-brand img:hover {
+            transform: scale(1.1);
+        }
+
+        .navbar .nav-link {
+            color: var(--text-light);
+            font-weight: 600;
+            margin: 0 20px;
+            position: relative;
+            font-size: 1.1rem;
+            padding: 5px 0;
+            transition: color var(--transition-speed);
+        }
+
+        .navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 3px;
+            display: block;
+            background: var(--secondary);
+            transition: width var(--transition-speed);
+            left: 50%;
+            bottom: -5px;
+            transform: translateX(-50%);
+        }
+
+        .navbar .nav-link:hover::after,
+        .navbar .nav-link:focus::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .navbar .nav-link:hover,
+        .navbar .nav-link:focus {
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--secondary);
+        }
+
+        .navbar .btn-cta {
+            background: var(--secondary);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+            box-shadow: 0 6px 20px var(--btn-shadow);
+            margin-left: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar .btn-cta::before {
+            content: "";
+            position: absolute;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform var(--transition-speed);
+        }
+
+        .navbar .btn-cta:hover::before {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .navbar .btn-cta:hover {
+            background: #e05574;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px var(--btn-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .navbar .nav-link {
+                margin: 0 10px;
+                font-size: 1rem;
+            }
+
+            .navbar .btn-cta {
+                padding: 10px 25px;
+                margin-left: 20px;
+            }
+        }
+
+        header {
+            position: relative;
+            min-height: 100vh;
+            margin-top: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.5;
+            transition: opacity 0.5s ease;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            .video-background {
+                display: none;
+            }
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .professor-background {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url("imgs/alan-5.png") no-repeat center right;
+            background-size: contain;
+            z-index: 3;
+            opacity: 0.9;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .professor-background:hover {
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.3));
+            z-index: 4;
+            mix-blend-mode: overlay;
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(2px);
+        }
+
+        .header-container {
+            position: relative;
+            z-index: 5;
+            max-width: 1400px;
+            padding: 2rem 3rem;
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .text-content {
+            flex: 1 1 600px;
+            color: #fff;
+            animation: slideInLeft 1s ease forwards;
+            opacity: 0;
+        }
+
+        .text-content h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 1.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textGradient 3s ease infinite;
+            text-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .text-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #dcdcdc;
+            animation: fadeInUp 1.5s ease forwards;
+            opacity: 0;
+        }
+
+        .text-content .btn-cta {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.4);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .text-content .btn-cta i {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .text-content .btn-cta:hover {
+            transform: translateY(-5px) scale(1.05);
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+        }
+
+        .text-content .btn-cta:hover i {
+            transform: translateX(5px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGradient {
             0% {
                 background-position: 0% 50%;
             }
@@ -89,339 +388,126 @@
             }
         }
 
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: var(--font-heading);
-            letter-spacing: 0.5px;
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
         }
 
-        h1 {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
         }
 
-        h2 {
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        .back-to-top:hover {
+            background: #e05574;
+            transform: scale(1.1);
         }
 
-        .navbar {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            transition: background var(--transition-speed), box-shadow var(--transition-speed);
-            height: var(--navbar-height);
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1rem;
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1100;
-            padding: 0 30px;
+            z-index: 1600;
+            transition: background var(--transition-speed);
         }
 
-        .navbar.scrolled {
-            background: rgba(0, 0, 0, 0.9);
-            box-shadow: 0 4px 20px var(--shadow-dark);
-        }
-
-        .navbar .nav-link {
-            color: var(--text-light);
-            font-weight: 500;
-            margin: 0 15px;
-            position: relative;
-            font-size: 1rem;
-            padding: 5px 0;
-            transition: color var(--transition-speed);
-        }
-
-        .navbar .nav-link::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            display: block;
-            background: var(--secondary);
-            transition: width var(--transition-speed);
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-        }
-
-        .navbar .nav-link:hover::after,
-        .navbar .nav-link:focus::after {
-            width: 100%;
-            left: 0;
-            background: var(--secondary);
-        }
-
-        .navbar .nav-link:hover,
-        .navbar .nav-link:focus {
-            color: var(--secondary);
-            text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-        }
-
-        .navbar .btn-cta {
-            background: var(--secondary);
+        .top-bar i {
             color: #fff;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 0.95rem;
-            transition: background var(--transition-speed), transform var(--transition-speed);
-            box-shadow: 0 4px 15px var(--btn-shadow);
+            margin-right: 10px;
+            animation: pulseIcon 2s infinite;
         }
 
-        .navbar .btn-cta:hover,
-        .navbar .btn-cta:focus {
-            background: #e05574;
-            transform: translateY(-3px);
+        @keyframes pulseIcon {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
         }
 
-        /* Ajustes no menu mobile */
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .professor-background {
+                width: 70%;
+                height: auto;
+                background-size: cover;
+                margin-top: 30px;
+            }
+
+            .text-content h1 {
+                font-size: 3rem;
+            }
+
+            .text-content p {
+                font-size: 1.1rem;
+            }
+        }
+
         @media (max-width: 576px) {
             .navbar {
                 padding: 0 15px;
             }
 
-            .navbar-toggler {
-                border: none;
-                font-size: 1.5rem;
-                color: #fff;
-            }
-
-            /* Melhorar fundo do menu mobile */
-            .navbar-collapse.show {
-                background: rgba(0, 0, 0, 0.95);
-                position: fixed;
-                top: var(--navbar-height);
-                left: 0;
-                right: 0;
-                bottom: 0;
-                z-index: 1050;
-                /* Ajuste para ficar abaixo do navbar */
-                padding: 60px 20px;
-                display: flex !important;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                animation: fadeIn 0.3s ease forwards;
-            }
-
-            /* Adicionar animação para o menu mobile */
-            @keyframes fadeIn {
-                from {
-                    opacity: 0;
-                }
-
-                to {
-                    opacity: 1;
-                }
-            }
-
-            .navbar-nav {
-                flex-direction: column;
-                gap: 1.5rem;
-                align-items: center;
-            }
-
-            .nav-link {
-                font-size: 1.2rem;
-                margin: 0;
-                padding: 10px 0;
+            .navbar .nav-link {
+                margin: 0 8px;
+                font-size: 1rem;
             }
 
             .navbar .btn-cta {
-                display: block;
-                margin-top: 20px;
-                font-size: 1.1rem;
+                padding: 10px 25px;
+                margin-left: 15px;
             }
 
-            /* Prevenir scroll do corpo quando o menu estiver aberto */
-            body.nav-open {
-                overflow: hidden;
-            }
-        }
-
-        header {
-            position: relative;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent);
-        }
-
-        .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-            opacity: 0.4;
-        }
-
-        /* Remover o vídeo no mobile */
-        @media (max-width: 576px) {
-            .video-background {
+            .professor-background {
                 display: none;
             }
-        }
 
-        #particles-js {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3));
-            z-index: 2;
-            backdrop-filter: blur(5px);
-        }
-
-        .header-container {
-            position: relative;
-            z-index: 3;
-            max-width: 1200px;
-            padding: 2rem 1rem;
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .text-content {
-            flex: 1 1 500px;
-            color: #fff;
-            animation: fadeInUp 1s ease forwards;
-        }
-
-        .text-content h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.2rem;
-            margin-bottom: 1rem;
-            font-weight: bold;
-            line-height: 1.3;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 1.2s ease;
-        }
-
-        .text-content p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            color: #e0e0e0;
-            animation: fadeInUp 1.5s ease;
-        }
-
-        .text-content .btn-cta {
-            padding: 12px 30px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #fff;
-            border-radius: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-
-        .text-content .btn-cta:hover {
-            transform: translateY(-3px) scale(1.05);
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-        }
-
-        .image-content {
-            flex: 1 1 300px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            perspective: 1000px;
-        }
-
-        .header-image-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            overflow: hidden;
-            padding: 5px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            cursor: pointer;
-        }
-
-        .header-image-container img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            position: relative;
-            z-index: 1;
-            transition: transform 0.5s ease, filter 0.5s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .header-image-container:hover img {
-            transform: scale(1.05);
-            filter: brightness(1.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-        }
-
-        .header-image-container:hover {
-            transform: translateY(-5px);
-        }
-
-        @keyframes rotate360 {
-            0% {
-                transform: rotate(0deg);
+            .header-container {
+                padding: 2rem 1rem;
             }
 
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes fadeInUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Ajustes de header no mobile */
-        @media (max-width: 576px) {
             .text-content h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .text-content p {
                 font-size: 1rem;
             }
 
-            .header-image-container {
-                width: 200px;
-                height: 200px;
+            .text-content .btn-cta {
+                padding: 12px 30px;
+                font-size: 1rem;
             }
         }
 
@@ -542,7 +628,6 @@
             }
         }
 
-        /* Sobre o Professor */
         #about {
             padding: 100px 20px;
             background: linear-gradient(120deg, #121212, #1e1e1e);
@@ -787,7 +872,6 @@
             margin-right: 8px;
         }
 
-        /* Depoimentos (Testimoniais) */
         #testimonials {
             padding: 80px 20px;
             background: #f3f3f3;
@@ -908,7 +992,6 @@
             }
         }
 
-        /* YouTube Section */
         #youtube {
             position: relative;
             height: 100vh;
@@ -1027,7 +1110,6 @@
             box-shadow: 0 0 25px rgba(255, 255, 254, 0.7);
         }
 
-        /* CTA */
         .cta {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
@@ -1145,7 +1227,6 @@
             }
         }
 
-        /* Footer */
         footer {
             background: var(--footer-bg);
             padding: 50px 20px;
@@ -1201,7 +1282,6 @@
             transform: translateY(-3px) scale(1.1);
         }
 
-        /* Botão de Voltar ao Topo */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -1268,140 +1348,139 @@
 </head>
 
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar" role="banner" aria-label="Aviso Importante">
-        <i class="fas fa-exclamation-triangle me-2" aria-hidden="true"></i>Últimos dias para garantir sua Assinatura
-        Completa 2025!
-    </div>
+ <!-- Top Bar -->
+<div class="top-bar" role="banner" aria-label="Aviso Importante">
+    <i class="fas fa-exclamation-triangle"></i> Últimos dias para garantir sua Assinatura Completa 2025!
+</div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Navegação Principal">
-        <div class="container">
-            <a class="navbar-brand" href="#home" aria-label="Página Inicial">
-                <img src="imgs/NAV.png" alt="Logo do Prof. Alan Soares" height="40" loading="lazy">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="Navegação Principal">
+    <div class="container">
+        <a class="navbar-brand" href="#home" aria-label="Página Inicial">
+            <img src="imgs/NAV.png" alt="Logo do Prof. Alan Soares" loading="lazy">
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#courses">Cursos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Depoimentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#youtube">YouTube</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contato</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a href="page.html" class="btn btn-cta" role="button" aria-label="Página Adicional">
+                        Quero ser aluno
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<header id="home">
+    <video autoplay muted loop class="video-background" aria-hidden="true">
+        <source src="imgs/video.mp4" type="video/mp4">
+        Seu navegador não suporta o elemento de vídeo.
+    </video>
+
+    <div id="particles-js" aria-hidden="true"></div>
+
+    <div class="professor-background"></div>
+
+    <div class="header-overlay" aria-hidden="true"></div>
+
+    <div class="container header-container">
+        <div class="text-content" data-aos="fade-right">
+            <h1>Domine as Exatas com a <strong>Assinatura Completa 2025</strong></h1>
+            <p>Acelere seus estudos com aulas de Matemática, Física e Estatística. Conteúdo completo, prático e
+                guiado por um especialista com mais de 20 anos de experiência.</p>
+            <a href="#courses" class="btn btn-cta" role="button" aria-label="Ir para Cursos">
+                <i class="fas fa-book-open"></i> Comece Agora
             </a>
-            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Início</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#courses">Cursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">Sobre</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Depoimentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#youtube">YouTube</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contato</a>
-                    </li>
-                    <li class="nav-item ms-3">
-                        <a href="page.html" class="btn btn-cta" role="button" aria-label="Página Adicional">Quero ser
-                            aluno</a>
-                    </li>
-                </ul>
-            </div>
         </div>
-    </nav>
-
-    <header id="home">
-        <video autoplay muted loop class="video-background" aria-hidden="true">
-            <source src="imgs/video.mp4" type="video/mp4">
-            Seu navegador não suporta o elemento de vídeo.
-        </video>
-
-        <div id="particles-js" aria-hidden="true"></div>
-        <div class="header-overlay" aria-hidden="true"></div>
-
-        <div class="container header-container">
-            <div class="text-content" data-aos="fade-right">
-                <h1>Domine as Exatas com a <strong>Assinatura Completa 2025</strong></h1>
-                <p>Acelere seus estudos com aulas de Matemática, Física e Estatística. Conteúdo completo, prático e
-                    guiado
-                    por um especialista com mais de 20 anos de experiência.</p>
-                <a href="#courses" class="btn btn-cta" role="button" aria-label="Ir para Cursos">
-                    <i class="fas fa-book-open me-2" aria-hidden="true"></i>Comece Agora
-                </a>
-            </div>
-            <div class="image-content" data-aos="fade-left">
-                <div class="header-image-container">
-                    <img src="imgs/Alan-H.png" alt="Foto do Professor Alan Soares" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-        <i class="fas fa-chevron-up" aria-hidden="true"></i>
     </div>
+</header>
 
-    <main <div class="row mt-1 g-5 justify-content-center" data-aos="fade-up">
-        <!-- Curso 1 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
-            <div class="card course-card h-100">
-                <img src="imgs/midia1.jpg" class="card-img-top" alt="Capa do curso de Estatística Completa"
-                    loading="lazy">
-                <div class="card-body text-center">
-                    <span class="course-badge">Oferta!</span>
-                    <h5 class="card-title">RLM completo + Questões por Bancas</h5>
-                    <p class="course-price">
-                        <span class="old-price">De R$ 397,00</span>
-                        <span class="new-price">por R$ 147,00</span>
-                    </p>
-                    <a href="RLM-Completo.html" class="btn btn-saiba-mais" role="button">
-                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
-                    </a>
+<!-- Back to Top Button -->
+<div class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+</div>
 
+
+    <main>
+        <div class="row mt-1 g-5 justify-content-center" data-aos="fade-up">
+            <!-- Curso 1 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="card course-card h-100">
+                    <img src="imgs/midia1.jpg" class="card-img-top" alt="Capa do curso de Estatística Completa"
+                        loading="lazy">
+                    <div class="card-body text-center">
+                        <span class="course-badge">Oferta!</span>
+                        <h5 class="card-title">RLM completo + Questões por Bancas</h5>
+                        <p class="course-price">
+                            <span class="old-price">De R$ 397,00</span>
+                            <span class="new-price">por R$ 147,00</span>
+                        </p>
+                        <a href="RLM-Completo.html" class="btn btn-saiba-mais" role="button">
+                            <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                        </a>
+
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Curso 2 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
-            <div class="card course-card h-100">
-                <img src="curso2.jpg" class="card-img-top" alt="Capa do curso Matemática Básica + Questões por Bancas"
-                    loading="lazy">
-                <div class="card-body text-center">
-                    <span class="course-badge">Oferta!</span>
-                    <h5 class="card-title">Matemática Básica + Questões por Bancas</h5>
-                    <p class="course-price">
-                        <span class="old-price">De R$ 397,00</span>
-                        <span class="new-price">por R$ 147,00</span>
-                    </p>
-                    <a href="rlm-1001-questoes.html" class="btn btn-saiba-mais" role="button">
-                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
-                    </a>
+            <!-- Curso 2 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="card course-card h-100">
+                    <img src="curso2.jpg" class="card-img-top"
+                        alt="Capa do curso Matemática Básica + Questões por Bancas" loading="lazy">
+                    <div class="card-body text-center">
+                        <span class="course-badge">Oferta!</span>
+                        <h5 class="card-title">Matemática Básica + Questões por Bancas</h5>
+                        <p class="course-price">
+                            <span class="old-price">De R$ 397,00</span>
+                            <span class="new-price">por R$ 147,00</span>
+                        </p>
+                        <a href="rlm-1001-questoes.html" class="btn btn-saiba-mais" role="button">
+                            <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Curso 3 -->
-        <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
-            <div class="card course-card h-100">
-                <img src="imgs/midia.jpg" class="card-img-top" alt="Capa do curso Assinatura Premium: Exatas do Zero"
-                    loading="lazy">
-                <div class="card-body text-center">
-                    <span class="course-badge">Oferta!</span>
-                    <h5 class="card-title">Assinatura Premium: Exatas do Zero</h5>
-                    <p class="course-price">
-                        <span class="old-price">De R$ 997,00</span>
-                        <span class="new-price">por R$ 397,00</span>
-                    </p>
-                    <a href="assinatura-policia-federal.html" class="btn btn-saiba-mais" role="button">
-                        <i class="fas fa-info-circle me-2"></i>Saiba Mais
-                    </a>
+            <!-- Curso 3 -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="card course-card h-100">
+                    <img src="imgs/midia.jpg" class="card-img-top"
+                        alt="Capa do curso Assinatura Premium: Exatas do Zero" loading="lazy">
+                    <div class="card-body text-center">
+                        <span class="course-badge">Oferta!</span>
+                        <h5 class="card-title">Assinatura Premium: Exatas do Zero</h5>
+                        <p class="course-price">
+                            <span class="old-price">De R$ 997,00</span>
+                            <span class="new-price">por R$ 397,00</span>
+                        </p>
+                        <a href="assinatura-policia-federal.html" class="btn btn-saiba-mais" role="button">
+                            <i class="fas fa-info-circle me-2"></i>Saiba Mais
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
 
         <!-- Sobre -->
@@ -1424,7 +1503,6 @@
                             constante. O objetivo é claro: ajudar você a atingir o seu potencial máximo, seja para
                             provas, concursos ou desenvolvimento profissional.</p>
 
-                        <!-- Estatísticas -->
                         <div class="stats" data-aos="zoom-in" data-aos-delay="300">
                             <div class="stat-card">
                                 <i class="fas fa-chalkboard-teacher"></i>
@@ -1443,8 +1521,6 @@
                             </div>
                         </div>
 
-
-                        <!-- CTA Button -->
                         <a href="#courses" class="btn btn-primary mt-4" role="button" aria-label="Inscreva-se Agora">
                             <i class="fas fa-paper-plane me-2" aria-hidden="true"></i>Inscreva-se Agora
                         </a>
@@ -1524,16 +1600,13 @@
 
         <!-- YouTube Section -->
         <section id="youtube" aria-labelledby="youtube-section">
-            <!-- Vídeo de Fundo -->
             <div class="video-background">
                 <iframe
                     src="https://www.youtube.com/embed/98PaRzF1ky8?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=98PaRzF1ky8&modestbranding=1&rel=0&fs=0&iv_load_policy=3"
                     frameborder="0" allow="autoplay; encrypted-media" allowfullscreen loading="lazy"
                     title="Operação TJ SP: Raciocínio Lógico - Prof. Alan Soares"></iframe>
             </div>
-            <!-- Overlay para Escurecer o Vídeo -->
             <div class="overlay" aria-hidden="true"></div>
-            <!-- Conteúdo Sobreposto -->
             <div class="content" data-aos="fade-up">
                 <h2 id="youtube-section">Conheça nosso Canal no YouTube</h2>
                 <p>Assista a aulas, dicas e conteúdos gratuitos.</p>
@@ -1543,7 +1616,6 @@
                 </a>
             </div>
         </section>
-
 
         <!-- CTA -->
         <section class="cta" aria-labelledby="call-to-action">
@@ -1557,7 +1629,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer id="contact" aria-labelledby="contato">
         <div class="container">
             <p id="contato"><strong>Entre em contato:</strong> contato@alansoares.com</p>
@@ -1644,7 +1715,7 @@
                 }
 
                 let current = 0;
-                const duration = 2000; // duração total da animação em ms
+                const duration = 2000;
                 const startTime = performance.now();
 
                 const animate = (currentTime) => {
@@ -1670,7 +1741,6 @@
             let countersStarted = false;
             const aboutSection = document.getElementById('about');
 
-            // Usando IntersectionObserver
             if ('IntersectionObserver' in window) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
@@ -1684,11 +1754,9 @@
 
                 observer.observe(aboutSection);
             } else {
-                // Fallback
                 statsCounters.forEach(counter => countUp(counter));
             }
 
-            // Particles.js
             particlesJS("particles-js", {
                 "particles": {
                     "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
@@ -1714,7 +1782,6 @@
                 "retina_detect": true
             });
 
-            // Botão Back to Top
             const backToTopButton = document.getElementById('backToTop');
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
@@ -1723,7 +1790,6 @@
                 });
             });
 
-            // Prevenir scroll do corpo quando o menu estiver aberto
             const navbarToggler = document.querySelector('.navbar-toggler');
             const navbarCollapse = document.querySelector('.navbar-collapse');
 
