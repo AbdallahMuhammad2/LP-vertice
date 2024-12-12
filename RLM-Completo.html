@@ -5,17 +5,19 @@
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assinatura Premium - Exatas do Zero</title>
+    <title>RLM completo + Questões por Bancas</title>
 
     <!-- SEO -->
-    <meta name="description" content="Acesse o método que trará alta performance em exatas para concursos. Domine RLM, Matemática, Física e muito mais!">
+    <meta name="description"
+        content="Acesse o método que trará alta performance em exatas para concursos. Domine RLM, Matemática, Física e muito mais!">
     <meta property="og:title" content="Assinatura Premium - Exatas do Zero">
-    <meta property="og:description" content="Acesse o método que trará alta performance em exatas para concursos. Domine RLM, Matemática, Física e muito mais!">
+    <meta property="og:description"
+        content="Acesse o método que trará alta performance em exatas para concursos. Domine RLM, Matemática, Física e muito mais!">
     <meta property="og:image" content="URL_DA_IMAGEM_DE_DESTAQUE">
     <meta property="og:url" content="URL_DA_SUA_PAGINA">
 
     <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="imgs/NAV.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
@@ -77,34 +79,43 @@
             color: inherit;
         }
 
-        /* Navbar */
+
         .navbar {
-            background: rgba(0, 0, 0, 0.6);
+            background: black;
             -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             transition: background var(--transition-speed), box-shadow var(--transition-speed);
             height: var(--navbar-height);
-            position: fixed;
+            position: absolute;
             width: 100%;
-            top: 0; /* Corrigido de 'top: 10;' para 'top: 0;' */
+            top: 15;
+            /* Changed from 10 to 0 for proper positioning */
             z-index: 1500;
             padding: 0 50px;
             display: flex;
             align-items: center;
+            font-family: var(--font-family);
         }
 
         .navbar.scrolled {
-            background: rgba(0, 0, 0, 0.9);
+            background: var(--navbar-bg-scrolled);
             box-shadow: 0 8px 30px var(--shadow-dark);
         }
 
         .navbar .navbar-brand img {
             height: 50px;
-            transition: transform 0.3s ease;
+            transition: transform var(--transition-speed);
         }
 
         .navbar .navbar-brand img:hover {
             transform: scale(1.1);
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
         }
 
         .navbar .nav-link {
@@ -115,6 +126,7 @@
             font-size: 1.1rem;
             padding: 5px 0;
             transition: color var(--transition-speed);
+            cursor: pointer;
         }
 
         .navbar .nav-link::after {
@@ -146,6 +158,7 @@
             background: var(--secondary);
             color: #fff;
             padding: 12px 35px;
+            border: none;
             border-radius: 50px;
             font-weight: bold;
             font-size: 1rem;
@@ -154,6 +167,7 @@
             margin-left: 30px;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .navbar .btn-cta::before {
@@ -174,9 +188,97 @@
         }
 
         .navbar .btn-cta:hover {
-            background: #e05574;
+            background: #d94a63;
+            /* Slightly darker for better effect */
             transform: translateY(-4px);
             box-shadow: 0 8px 25px var(--btn-shadow);
+        }
+
+        @media (max-width: 992px) {
+            .navbar {
+                padding: 0 30px;
+            }
+
+            .navbar .nav-links {
+                display: none;
+                /* Hide nav links on medium screens */
+            }
+
+            .navbar .btn-cta {
+                margin-left: 20px;
+                padding: 10px 25px;
+            }
+
+            /* Hamburger Menu Styles */
+            .navbar .hamburger {
+                display: block;
+                cursor: pointer;
+                width: 30px;
+                height: 21px;
+                position: relative;
+            }
+
+            .navbar .hamburger span {
+                background: var(--text-light);
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                border-radius: 2px;
+                transition: all var(--transition-speed);
+            }
+
+            .navbar .hamburger span:nth-child(1) {
+                top: 0;
+            }
+
+            .navbar .hamburger span:nth-child(2) {
+                top: 9px;
+            }
+
+            .navbar .hamburger span:nth-child(3) {
+                top: 18px;
+            }
+
+            /* Active Hamburger Animation */
+            .navbar .hamburger.active span:nth-child(1) {
+                transform: rotate(45deg);
+                top: 9px;
+            }
+
+            .navbar .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .navbar .hamburger.active span:nth-child(3) {
+                transform: rotate(-45deg);
+                top: 9px;
+            }
+
+            /* Mobile Menu Styles */
+            .navbar.mobile-menu {
+                position: fixed;
+                top: var(--navbar-height);
+                left: 0;
+                width: 100%;
+                background: var(--navbar-bg-scrolled);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                box-shadow: 0 8px 30px var(--shadow-dark);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height var(--transition-speed);
+            }
+
+            .navbar.mobile-menu.open {
+                max-height: 500px;
+                /* Adjust as needed */
+            }
+
+            .navbar.mobile-menu .nav-link {
+                margin: 15px 0;
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -339,7 +441,7 @@
 
         .old-price {
             text-decoration: line-through;
-            color: #999;
+            color: #ff0000;
             margin-right: 10px;
         }
 
@@ -533,7 +635,7 @@
         }
 
         .quem-sou-eu img {
-            max-width: 170px;
+            max-width: 300px;
             border-radius: 50%;
             margin-bottom: 30px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -580,7 +682,6 @@
         .carrossel-item h4 {
             font-size: 1.2rem;
             margin-bottom: 10px;
-            color: var(--primary);
         }
 
         .carrossel-item p {
@@ -659,6 +760,7 @@
         .back-to-top i {
             font-size: 1.5rem;
         }
+
         .section#conteudo-cursos {
             padding: 60px 20px;
             background-color: var(--background);
@@ -674,6 +776,7 @@
             font-size: 1rem;
             color: var(--text-color);
         }
+
         /* Estilos da Seção */
         .section#conteudo-cursos {
             padding: 60px 20px;
@@ -692,7 +795,7 @@
             margin-bottom: 40px;
         }
 
-      
+
         /* Estilos do Accordion */
         .accordion-custom .accordion-item {
             border: none;
@@ -724,7 +827,8 @@
         }
 
         .accordion-custom .accordion-button::after {
-            content: "\f0d7"; /* Ícone de seta para baixo */
+            content: "\f0d7";
+            /* Ícone de seta para baixo */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -734,15 +838,11 @@
             transition: transform 0.3s;
         }
 
-       
+
         .accordion-custom .accordion-button:not(.collapsed)::after {
             transform: translateY(-50%) rotate(0deg);
         }
 
-        .accordion-custom .accordion-button:not(.collapsed) {
-            background: var(--secondary);
-            color: var(--header-color);
-        }
 
         .accordion-custom .accordion-button:focus {
             box-shadow: none;
@@ -784,7 +884,8 @@
         }
 
         .accordion-custom .accordion-body .grid-list .grid-item::before {
-            content: "\f00c"; /* Ícone de check do Font Awesome */
+            content: "\f00c";
+            /* Ícone de check do Font Awesome */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--primary);
@@ -829,6 +930,7 @@
                 grid-template-columns: 1fr;
             }
         }
+
         /* Responsividade */
         @media (max-width: 1200px) {
             .hero h1 {
@@ -943,51 +1045,135 @@
                 padding: 20px 0;
             }
         }
+        /* Estilos para o Novo Bloco: Curso Completo de RLM */
+.section.curso-rlm {
+    margin-top: 100px;
+    background: #f9f9f9; /* Fundo suave para destaque */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.section.curso-rlm h2 {
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+
+.section.curso-rlm p {
+    font-size: 1.1rem;
+    color: var(--text);
+    max-width: 800px;
+    margin: 0 auto 20px;
+    line-height: 1.6;
+}
+
+.section.curso-rlm .btn-enroll {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: #fff;
+    padding: 15px 50px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.section.curso-rlm .btn-enroll:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+/* Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25D366; /* Cor característica do WhatsApp */
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1500; /* Certifique-se de que esteja acima de outros elementos */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: #3cff00; /* Cor do WhatsApp ao passar o mouse */
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.whatsapp-float i {
+    pointer-events: none; /* Evita que o ícone capture eventos de clique */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 24px;
+    }
+}
+
     </style>
 </head>
 
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="imgs/logo.png" alt="Exatas do Zero"> <!-- Adicione a imagem do logo -->
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#produtos">Produtos</a> <!-- Alterado de "Produto" para "Produtos" -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#beneficios">Benefícios</a> <!-- Alterado de "Por que Ideal?" para "Benefícios" -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#depoimentos">Depoimentos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#sobre-nos">Sobre Nós</a> <!-- Alterado de "Sobre" para "Sobre Nós" -->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#concursos">Concursos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-cta text-dark ms-3" href="#produtos">Inscreva-se</a> <!-- Alterado de "Matricule-se" para "Inscreva-se" -->
-                    </li>
-                </ul>
-            </div>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg" role="navigation" aria-label="Navegação Principal">
+    <div class="container">
+        <a class="navbar-brand" href="#home" aria-label="Página Inicial">
+            <img src="imgs/NAV.png" alt="Logo do Prof. Alan Soares" loading="lazy">
+        </a>
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#produtos">Produtos</a> <!-- Alterado de "Produto" para "Produtos" -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#beneficios">Benefícios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#depoimentos">Depoimentos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#sobre-nos">Sobre Nós</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#concursos">Concursos</a>
+                </li>
+                <li class="nav-item ms-3">
+                    <a href="#produtos" class="btn btn-cta" role="button" aria-label="Página Adicional">
+                        Quero ser aluno
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
-    </nav>
-
+    </div>
+</nav>
+  
     <!-- HERO -->
     <section class="hero" id="home" data-aos="fade-down">
         <div class="container">
-            <h1>Assinatura Premium - Exatas do Zero</h1>
-            <p>Acesse o método definitivo para dominar Exatas com alta performance e conquistar sua aprovação em concursos. Seja a próxima história de sucesso!</p>
+            <h1>RLM completo + Questões por Bancas
+            </h1>
+            <p>Você terá acesso ao método que trará alta performance em exatas já no próximo concurso público! </p>
             <a href="#produtos" class="btn-cta"><i class="fas fa-graduation-cap me-2"></i>Quero ser aluno(a)</a>
         </div>
     </section>
@@ -996,8 +1182,10 @@
     <section class="section" id="produtos" data-aos="fade-up">
         <div class="product-section">
             <div class="product-text">
-                <h3>Transforme suas habilidades em Exatas</h3>
-                <p><strong>Desbloqueie seu potencial</strong> e acerte mais de 80% das questões. Chega de temer Exatas! Clique em <span style="color:var(--primary);font-weight:700;">"Quero ser aluno(a)!”</span> agora mesmo.</p>
+                <h3>Quer acertar mais de 80% das questões de exatas no seu concurso público?</h3>
+                <p><strong>Descubra a metodologia inovadora de Alan Soares, especialista em concursos públicos.</strong>
+                    Com aulas práticas e uma abordagem direta, você ganhará confiança para enfrentar até as questões
+                    mais desafiadoras.</p>
                 <p>
                     <span class="old-price">De R$ 997,00</span>
                     <span class="new-price">por R$ 397,00</span>
@@ -1005,17 +1193,23 @@
                 <a href="#" class="btn-enroll"><i class="fas fa-user-plus me-2"></i>Quero ser aluno(a)</a>
             </div>
             <div class="product-video">
-                <iframe src="https://www.youtube.com/embed/sgI-SoJhgPM?controls=1" allowfullscreen></iframe>
-            </div>
+                <iframe width="1280" height="720" src="https://www.youtube.com/embed/sgI-SoJhgPM" title="Operação PF: Raciocínio Lógico - Prof. Alan Soares" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
         </div>
+
+<!-- Novo Bloco: Curso Completo de RLM -->
+<section class="section curso-rlm" id="curso-rlm" data-aos="fade-up">
+    <div class="container">
+        <h2>Curso Completo de Raciocínio Lógico Matemático (RLM)</h2>
+        <p>Prepare-se para conquistar sua vaga em concursos públicos com o <strong>Curso Completo de Raciocínio Lógico Matemático (RLM)</strong>, que inclui <strong>1001 questões resolvidas e comentadas</strong>. Desenvolvido por um dos maiores especialistas em concursos do Brasil, este curso oferece tudo o que você precisa para alcançar a aprovação.</p>
+        <p>Com <strong>materiais de apoio em PDF</strong> e um <strong>extenso banco de questões</strong>, você terá à sua disposição as ferramentas ideais para se destacar entre os candidatos. Cada aula é estruturada para que você aprenda e domine as técnicas necessárias para resolver questões de RLM com confiança e precisão.</p>
+        <p>Ao enfrentar as <strong>1001 questões comentadas</strong>, você não apenas pratica, mas também absorve as estratégias e métodos que o aproximam cada vez mais da sua vaga. A preparação ideal para quem quer estar à frente e superar os desafios dos concursos públicos com tranquilidade.</p>
+    </div>
+</section>
 
         <h2 class="mt-5">Disciplinas Inclusas</h2>
         <div class="disciplinas">
-            <div class="disciplina-item"><i class="fas fa-calculator me-2"></i>Raciocínio Lógico</div>
-            <div class="disciplina-item"><i class="fas fa-square-root-alt me-2"></i>Matemática Básica</div>
-            <div class="disciplina-item"><i class="fas fa-chart-line me-2"></i>Matemática Financeira</div>
-            <div class="disciplina-item"><i class="fas fa-atom me-2"></i>Física</div>
-            <div class="disciplina-item"><i class="fas fa-book-open me-2"></i>Módulos por Banca</div>
+            <div class="disciplina-item"><i class="fas fa-square-root-alt me-2"></i>RLM</div>
+            <div class="disciplina-item"><i class="fas fa-chart-line me-2"></i>Questões dos principais concursos</div>
         </div>
     </section>
 
@@ -1024,120 +1218,66 @@
             <h2 class="text-center">Disciplinas que você terá acesso</h2>
             <p class="text-center mb-5">Clique na disciplina para visualizar todas as matérias disponíveis</p>
             <div class="accordion accordion-custom" id="accordionCursos">
-           
+              
+    
+                <!-- Raciocínio Lógico para Concursos -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingRL">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseRL" aria-expanded="false" aria-controls="collapseRL">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseRL" aria-expanded="false" aria-controls="collapseRL">
                             Raciocínio Lógico para Concursos
                         </button>
                     </h2>
                     <div id="collapseRL" class="accordion-collapse collapse" aria-labelledby="headingRL" data-bs-parent="#accordionCursos">
                         <div class="accordion-body">
                             <ul class="grid-list">
-                                <li><span>Lógica Proposicional</span></li>
-                                <li><span>Proposição</span></li>
-                                <li><span>Classificação de Proposição</span></li>
-                                <li><span>Proposição Composta</span></li>
-                                <li><span>Sinônimos do Conectivo E e Ou</span></li>
-                                <li><span>Negação de Proposições Compostas</span></li>
-                                <li><span>Quantificadores</span></li>
-                                <li><span>Equivalências Lógicas</span></li>
-                                <li><span>Princípio da Reversão</span></li>
-                                <li><span>Diagramas Lógicos</span></li>
-                                <li><span>Sequências Lógicas</span></li>
-                                <li><span>Verdades e Mentiras</span></li>
-                                <li><span>Probabilidade</span></li>
-                                <li><span>Questões</span></li>
+                                <li class="grid-item"><span>Lógica Proposicional</span></li>
+                                <li class="grid-item"><span>Proposição</span></li>
+                                <li class="grid-item"><span>Classificação de Proposição</span></li>
+                                <li class="grid-item"><span>Proposição Composta</span></li>
+                                <li class="grid-item"><span>Sinônimos do Conectivo E e Ou</span></li>
+                                <li class="grid-item"><span>Negação de Proposições Compostas</span></li>
+                                <li class="grid-item"><span>Quantificadores</span></li>
+                                <li class="grid-item"><span>Equivalências Lógicas</span></li>
+                                <li class="grid-item"><span>Princípio da Reversão</span></li>
+                                <li class="grid-item"><span>Diagramas Lógicos</span></li>
+                                <li class="grid-item"><span>Sequências Lógicas</span></li>
+                                <li class="grid-item"><span>Verdades e Mentiras</span></li>
+                                <li class="grid-item"><span>Probabilidade</span></li>
+                                <li class="grid-item"><span>Questões</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Matemática para Concursos -->
+    
+                <!-- Questões dos Principais Concursos -->
                 <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingMatematica">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMatematica" aria-expanded="false" aria-controls="collapseMatematica">
-                            Matemática para Concursos
+                    <h2 class="accordion-header" id="headingConcursos">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseConcursos" aria-expanded="false" aria-controls="collapseConcursos">
+                            Questões dos Principais Concursos
                         </button>
                     </h2>
-                    <div id="collapseMatematica" class="accordion-collapse collapse" aria-labelledby="headingMatematica" data-bs-parent="#accordionCursos">
+                    <div id="collapseConcursos" class="accordion-collapse collapse" aria-labelledby="headingConcursos" data-bs-parent="#accordionCursos">
                         <div class="accordion-body">
                             <ul class="grid-list">
-                                <li><span>Teoria dos Conjuntos</span></li>
-                                <li><span>Operações com Conjuntos</span></li>
-                                <li><span>Equação de Primeiro Grau</span></li>
-                                <li><span>Funções</span></li>
-                                <li><span>Função Quadrática</span></li>
-                                <li><span>Progressão Aritmética</span></li>
-                                <li><span>Matrizes</span></li>
-                                <li><span>Questões</span></li>
+                                <li class="grid-item"><span>Soma e Subtração com Vírgula</span></li>
+                                <li class="grid-item"><span>Multiplicação com Vírgula</span></li>
+                                <li class="grid-item"><span>Operações Elementares</span></li>
+                                <li class="grid-item"><span>Razão</span></li>
+                                <li class="grid-item"><span>Regra de Três</span></li>
+                                <li class="grid-item"><span>Porcentagem</span></li>
+                                <li class="grid-item"><span>Questões</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Matemática Financeira -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFinanceira">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinanceira" aria-expanded="false" aria-controls="collapseFinanceira">
-                            Matemática Financeira
-                        </button>
-                    </h2>
-                    <div id="collapseFinanceira" class="accordion-collapse collapse" aria-labelledby="headingFinanceira" data-bs-parent="#accordionCursos">
-                        <div class="accordion-body">
-                            <ul class="grid-list">
-                                <li><span>Porcentagem</span></li>
-                                <li><span>Juros Simples</span></li>
-                                <li><span>Juros Compostos</span></li>
-                                <li><span>Sistemas de Amortização</span></li>
-                                <li><span>Questões</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Matemática Básica para Concursos -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingBasica">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBasica" aria-expanded="false" aria-controls="collapseBasica">
-                            Matemática Básica para Concursos
-                        </button>
-                    </h2>
-                    <div id="collapseBasica" class="accordion-collapse collapse" aria-labelledby="headingBasica" data-bs-parent="#accordionCursos">
-                        <div class="accordion-body">
-                            <ul class="grid-list">
-                                <li><span>Soma e Subtração com Vírgula</span></li>
-                                <li><span>Multiplicação com Vírgula</span></li>
-                                <li><span>Operações Elementares</span></li>
-                                <li><span>Razão</span></li>
-                                <li><span>Regra de Três</span></li>
-                                <li><span>Porcentagem</span></li>
-                                <li><span>Questões</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Física para PRF -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFisica">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFisica" aria-expanded="false" aria-controls="collapseFisica">
-                            Física para PRF
-                        </button>
-                    </h2>
-                    <div id="collapseFisica" class="accordion-collapse collapse" aria-labelledby="headingFisica" data-bs-parent="#accordionCursos">
-                        <div class="accordion-body">
-                            <ul class="grid-list">
-                                <li><span>Grandezas Físicas</span></li>
-                                <li><span>Lei de Newton</span></li>
-                                <li><span>Movimento Retilíneo Uniforme</span></li>
-                                <li><span>Trabalho e Potência</span></li>
-                                <li><span>Colisões</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    
+                <!-- Adicione mais accordion items conforme necessário -->
             </div>
         </div>
     </section>
-    <!-- Seção RLM Completo + Questões por Bancas -->
-   
+    
     <!-- Seção Ideal -->
     <section class="ideal-section section" id="beneficios" data-aos="fade-up">
         <h2>Por que a Assinatura Premium é IDEAL?</h2>
@@ -1158,30 +1298,35 @@
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <img src="imgs/case1.jpg" alt="Aluno 1" loading="lazy">
+                            <img src="imgs/cases/case1.jpg" alt="Aluno 1" loading="lazy">
                             <strong>Tay Azevedo</strong>
                         </div>
-                        <p class="testimonial-text">"Fiz a prova da ebserh para técnico de enfermagem e enfermeiro, nas duas eu gabaritei raciocínio lógico! Obrigada pois com suas aulas aprendi o que sempre achei impossível! Já cheguei na prova super confiante. Obrigada por suas aulas incríveis ✨🩷"</p>
+                        <p class="testimonial-text">"Fiz a prova da ebserh para técnico de enfermagem e enfermeiro, nas
+                            duas eu gabaritei raciocínio lógico! Obrigada pois com suas aulas aprendi o que sempre achei
+                            impossível! Já cheguei na prova super confiante. Obrigada por suas aulas incríveis ✨🩷"</p>
                     </div>
                 </div>
                 <!-- Depoimento 2 -->
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <img src="imgs/student2.jpg" alt="Aluno 2" loading="lazy">
-                            <strong>Maria Oliveira</strong>
+                            <img src="imgs/cases/case2.jpg" alt="Aluno 2" loading="lazy">
+                            <strong>Letícia Carvalho</strong>
                         </div>
-                        <p class="testimonial-text">"Conteúdo de qualidade e suporte excelente. Passei no concurso graças a esses cursos."</p>
+                        <p class="testimonial-text">"Não tenho palavras para agradecer tudo o que o Alan fez por mim!
+                            Hoje eu vivo um sonho de infância: ingressar em uma universidade de medicina. (...)"</p>
                     </div>
                 </div>
                 <!-- Depoimento 3 -->
                 <div class="swiper-slide">
                     <div class="testimonial-card">
                         <div class="testimonial-content">
-                            <img src="imgs/student3.jpg" alt="Aluno 3" loading="lazy">
-                            <strong>Lucas Pereira</strong>
+                            <img src="imgs/cases/case3.png" alt="Aluno 3" loading="lazy">
+                            <strong>Miriam</strong>
                         </div>
-                        <p class="testimonial-text">"Didática incrível e exemplos práticos. Me ajudou muito nas provas."</p>
+                        <p class="testimonial-text">"Professor, comprei a mentoria e estou adorando suas aulas. Agora
+                            sim, entendo RLM. 🙏"
+                        </p>
                     </div>
                 </div>
                 <!-- Adicione mais depoimentos conforme necessário -->
@@ -1196,9 +1341,11 @@
 
     <!-- Quem Sou Eu -->
     <section class="quem-sou-eu section" id="sobre-nos" data-aos="fade-up">
-        <img src="imgs/Alan.jpg" alt="Professor Alan Soares" loading="lazy">
+        <img src="imgs/alan/Alan.jpg" alt="Professor Alan Soares" loading="lazy">
         <h2>Quem Sou Eu</h2>
-        <p>Sou Alan Soares, mentor em Exatas para concursos há mais de uma década. Minha missão é tornar RLM, Matemática e Física acessíveis, transformando dificuldades em pontos fortes. Ajudei milhares de alunos a conquistarem suas vagas. Agora é sua vez.</p>
+        <p>Sou Alan Soares, mentor em Exatas para concursos há mais de uma década. Minha missão é tornar RLM, Matemática
+            e Física acessíveis, transformando dificuldades em pontos fortes. Ajudei milhares de alunos a conquistarem
+            suas vagas. Agora é sua vez.</p>
     </section>
 
     <!-- Carrossel -->
@@ -1231,19 +1378,22 @@
     <!-- Footer -->
     <footer class="footer" id="footer">
         <p>&copy; 2025 Professor Alan Soares. Todos os direitos reservados.</p>
-        <p><a href="#politica-cookies">Política de Cookies</a> | <a href="#politica-privacidade">Política de Privacidade</a></p>
-        <div class="social-icons mt-3">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        </div>
+        <p><a href="#politica-cookies">Política de Cookies</a> | <a href="#politica-privacidade">Política de
+                Privacidade</a></p>
+                <div class="social-icons mt-3">
+                    <a target="_blank" href="https://www.facebook.com/alanraph" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/profalansoares/" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/@exatascomalansoares" aria-label="YouTube"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
     </footer>
 
-    <!-- Botão Back to Top -->
-    <div class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
-        <i class="fas fa-chevron-up"></i>
-    </div>
+      <!-- Botão Flutuante do WhatsApp -->
+      <a href="https://wa.me/21998413016" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+</a>
 
     <!-- Scripts -->
     <!-- Swiper JS -->
