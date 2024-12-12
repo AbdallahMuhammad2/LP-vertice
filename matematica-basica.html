@@ -1128,7 +1128,46 @@
                 right: 20px;
                 font-size: 24px;
             }
-        }
+        }/* Seção Desenvolvido por */
+.developed-by {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.developed-by a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none; /* Remove underline do link */
+    color: inherit; /* Herda a cor do texto */
+}
+
+.developed-by a span {
+    margin-right: 5px;
+}
+
+.developed-by img {
+    height: 30px; /* Ajuste o tamanho conforme necessário */
+    transition: transform 0.3s ease;
+}
+
+.developed-by a:hover img,
+.developed-by a:focus img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 576px) {
+    .developed-by img {
+        height: 25px; /* Tamanho menor para dispositivos móveis */
+    }
+
+    .developed-by {
+        font-size: 0.8rem; /* Fonte ligeiramente menor */
+    }
+}
+
     </style>
 </head>
 
@@ -1393,6 +1432,13 @@
                     class="fab fa-instagram"></i></a>
             <a target="_blank" href="https://www.youtube.com/@exatascomalansoares" aria-label="YouTube"><i
                     class="fab fa-youtube"></i></a>
+        </div> <div class="developed-by mt-4">
+            <p>
+                <a href="https://innovaxhouse.com.br" target="_blank" rel="noopener noreferrer" aria-label="Visite o site do desenvolvedor">
+                    <span>Desenvolvido com <i class="fas fa-heart" style="color: rgb(31, 255, 31);"></i>  por</span>
+                    <img src="imgs/innovax.png" alt="Logo da Innovax House" loading="lazy">
+                </a>
+            </p>
         </div>
     </footer>
 
