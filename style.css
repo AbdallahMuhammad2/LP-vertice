@@ -160,6 +160,8 @@ box-shadow: 0 8px 25px var(--btn-shadow);
 @media (max-width: 992px) {
 .navbar {
 padding: 0 30px;
+margin-top: 60px;
+
 }
 
 .navbar .nav-links {
@@ -170,7 +172,9 @@ display: none; /* Hide nav links on medium screens */
 margin-left: 20px;
 padding: 10px 25px;
 }
-
+.navbar-toggler{
+    color: #ffffff;
+}
 /* Hamburger Menu Styles */
 .navbar .hamburger {
 display: block;
@@ -179,7 +183,9 @@ width: 30px;
 height: 21px;
 position: relative;
 }
-
+.navbar-collapse{
+    background-color: #000000;
+}
 .navbar .hamburger span {
 background: var(--text-light);
 position: absolute;
@@ -781,8 +787,38 @@ font-size: 0.95rem;
     }
 }
 
+/* Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--navbar-bg);
+    min-width: 160px;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: var(--navbar-text-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--navbar-link-hover);
+    color: #fff;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 
+/* Seção #about */
 #about {
     padding: 100px 20px;
     background: linear-gradient(120deg, #121212, #1e1e1e);
@@ -838,6 +874,7 @@ font-size: 0.95rem;
     flex-wrap: wrap;
     align-items: center;
     gap: 40px;
+    justify-content: center; /* Centraliza os itens */
     position: relative;
     z-index: 2;
 }
@@ -848,6 +885,8 @@ font-size: 0.95rem;
     position: relative;
     display: flex;
     justify-content: center;
+    max-width: 500px; /* Limita a largura máxima */
+    width: 100%;
 }
 
 .professor-img-container {
@@ -861,6 +900,8 @@ font-size: 0.95rem;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
     cursor: pointer;
+    max-width: 100%;
+    height: auto;
 }
 
 .professor-img-container img {
@@ -894,6 +935,8 @@ font-size: 0.95rem;
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    max-width: 600px; /* Limita a largura */
+    width: 100%;
 }
 
 .about-text::before {
@@ -913,29 +956,68 @@ font-size: 0.95rem;
     font-size: 1.2rem;
     line-height: 1.7;
     margin-bottom: 20px;
+    word-wrap: break-word;
     z-index: 1;
     position: relative;
+    color: #f0f0f0;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 768px) {
+    #about {
+        padding: 80px 15px;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+
     .about-wrapper {
-        flex-direction: column;
-        text-align: center;
+        gap: 30px;
+    }
+
+    .professor-img-container {
+        width: 300px;
+        height: 300px;
     }
 
     .about-text {
-        padding: 30px 20px;
+        padding: 35px 25px;
     }
 
     .about-text p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #about {
+        padding: 60px 10px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 40px;
+    }
+
+    .about-wrapper {
+        gap: 20px;
     }
 
     .professor-img-container {
         width: 200px;
         height: 200px;
     }
+
+    .about-text {
+        padding: 25px 15px;
+    }
+
+    .about-text p {
+        font-size: 0.95rem;
+    }
 }
+
 
 .stats {
     display: flex;
@@ -1575,37 +1657,41 @@ a.nav-link:hover,
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.5);
 }
-/* Botão Flutuante do WhatsApp */
-.whatsapp-float {
+ /* 20. Botão Flutuante do WhatsApp */
+ .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #25D366; /* Cor característica do WhatsApp */
+    background-color: #25D366;
+    /* Cor característica do WhatsApp */
     color: #fff;
     border-radius: 50%;
     text-align: center;
     font-size: 30px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    z-index: 1500; /* Certifique-se de que esteja acima de outros elementos */
+    z-index: 1500;
+    /* Acima de outros elementos */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.whatsapp-float:hover {
-    background-color: #3cff00; /* Cor do WhatsApp ao passar o mouse */
-    transform: scale(1.1);
     cursor: pointer;
 }
 
-.whatsapp-float i {
-    pointer-events: none; /* Evita que o ícone capture eventos de clique */
+.whatsapp-float:hover {
+    background-color: #3cff00;
+    /* Cor do WhatsApp ao passar o mouse */
+    transform: scale(1.1);
 }
 
-/* Responsividade */
+.whatsapp-float i {
+    pointer-events: none;
+    /* Evita que o ícone capture eventos de clique */
+}
+
+/* Responsividade para o WhatsApp Float */
 @media (max-width: 768px) {
     .whatsapp-float {
         width: 50px;
@@ -1615,7 +1701,6 @@ a.nav-link:hover,
         font-size: 24px;
     }
 }
-/* Seção Desenvolvido por */
 .developed-by {
     text-align: center;
     margin-top: 20px;

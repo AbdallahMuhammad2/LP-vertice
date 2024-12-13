@@ -36,7 +36,9 @@
 
     <!-- Custom CSS -->
     <style>
+        /* 1. Declaração de Variáveis CSS Consolidada */
         :root {
+            /* Cores */
             --primary: #7f00ff;
             --secondary: #e100ff;
             --accent: #ff7eb9;
@@ -48,9 +50,13 @@
             --transition-speed: 0.3s;
             --shadow-dark: rgba(0, 0, 0, 0.3);
             --btn-shadow: rgba(0, 0, 0, 0.2);
+            --navbar-bg-scrolled: rgba(0, 0, 0, 0.9);
+            --card-bg: #ffffff;
+            --card-hover: #f0f0f0;
+            --border-color: #ddd;
         }
 
-        /* Reset */
+        /* 2. Reset Básico */
         * {
             margin: 0;
             padding: 0;
@@ -79,27 +85,51 @@
             color: inherit;
         }
 
-
+        /* 3. Navbar */
         .navbar {
             background: black;
             -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             transition: background var(--transition-speed), box-shadow var(--transition-speed);
             height: var(--navbar-height);
-            position: absolute;
+            position: fixed;
+            /* Alterado de absolute para fixed */
             width: 100%;
-            top: 15;
-            /* Changed from 10 to 0 for proper positioning */
+            top: 0;
+            /* Ajustado para 0 com unidade */
             z-index: 1500;
             padding: 0 50px;
             display: flex;
             align-items: center;
-            font-family: var(--font-family);
+            justify-content: space-between;
+            font-family: var(--font-main);
+        }
+
+        .navbar-toggler {
+            color: #ffffff;
         }
 
         .navbar.scrolled {
             background: var(--navbar-bg-scrolled);
             box-shadow: 0 8px 30px var(--shadow-dark);
+        }
+
+        .navbar-collapse{
+            background-color: #000000;
+        }
+        .navbar-collapse .nav-link {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            padding: 10px 0;
+            width: 100%;
+            text-align: center;
+            border-bottom: 1px solid #444;
+            /* Opcional: adicionar uma linha entre os links */
+        }
+
+        .navbar-collapse .nav-link:last-child {
+            border-bottom: none;
+            /* Remover a borda do último link */
         }
 
         .navbar .navbar-brand img {
@@ -189,11 +219,92 @@
 
         .navbar .btn-cta:hover {
             background: #d94a63;
-            /* Slightly darker for better effect */
             transform: translateY(-4px);
             box-shadow: 0 8px 25px var(--btn-shadow);
         }
 
+        /* 4. Menu Hamburger */
+        .hamburger {
+            display: none;
+            /* Oculto por padrão */
+            cursor: pointer;
+            width: 30px;
+            height: 21px;
+            position: relative;
+            z-index: 2000;
+            /* Acima do menu móvel */
+        }
+
+        .hamburger span {
+            background: var(--text-light);
+            position: absolute;
+            height: 3px;
+            width: 100%;
+            border-radius: 2px;
+            transition: all var(--transition-speed);
+        }
+
+        .hamburger span:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger span:nth-child(2) {
+            top: 9px;
+        }
+
+        .hamburger span:nth-child(3) {
+            top: 18px;
+        }
+
+        /* Ativa a animação do hamburger */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 9px;
+        }
+
+        /* 5. Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: var(--navbar-height);
+            left: 0;
+            width: 100%;
+            background: var(--navbar-bg-scrolled);
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 20px;
+            box-shadow: 0 8px 30px var(--shadow-dark);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-speed);
+            z-index: 1400;
+        }
+
+        .mobile-menu.open {
+            max-height: 500px;
+            /* Ajuste conforme necessário */
+        }
+
+        .mobile-menu .nav-link {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu .nav-link:hover,
+        .mobile-menu .nav-link:focus {
+            color: var(--secondary);
+            text-shadow: 0 0 10px var(--secondary);
+        }
+
+        /* 6. Media Queries para Responsividade */
         @media (max-width: 992px) {
             .navbar {
                 padding: 0 30px;
@@ -201,7 +312,7 @@
 
             .navbar .nav-links {
                 display: none;
-                /* Hide nav links on medium screens */
+                /* Oculta os links de navegação */
             }
 
             .navbar .btn-cta {
@@ -209,75 +320,9 @@
                 padding: 10px 25px;
             }
 
-            /* Hamburger Menu Styles */
-            .navbar .hamburger {
+            .hamburger {
                 display: block;
-                cursor: pointer;
-                width: 30px;
-                height: 21px;
-                position: relative;
-            }
-
-            .navbar .hamburger span {
-                background: var(--text-light);
-                position: absolute;
-                height: 3px;
-                width: 100%;
-                border-radius: 2px;
-                transition: all var(--transition-speed);
-            }
-
-            .navbar .hamburger span:nth-child(1) {
-                top: 0;
-            }
-
-            .navbar .hamburger span:nth-child(2) {
-                top: 9px;
-            }
-
-            .navbar .hamburger span:nth-child(3) {
-                top: 18px;
-            }
-
-            /* Active Hamburger Animation */
-            .navbar .hamburger.active span:nth-child(1) {
-                transform: rotate(45deg);
-                top: 9px;
-            }
-
-            .navbar .hamburger.active span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .navbar .hamburger.active span:nth-child(3) {
-                transform: rotate(-45deg);
-                top: 9px;
-            }
-
-            /* Mobile Menu Styles */
-            .navbar.mobile-menu {
-                position: fixed;
-                top: var(--navbar-height);
-                left: 0;
-                width: 100%;
-                background: var(--navbar-bg-scrolled);
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 20px;
-                box-shadow: 0 8px 30px var(--shadow-dark);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height var(--transition-speed);
-            }
-
-            .navbar.mobile-menu.open {
-                max-height: 500px;
-                /* Adjust as needed */
-            }
-
-            .navbar.mobile-menu .nav-link {
-                margin: 15px 0;
-                font-size: 1.2rem;
+                /* Mostra o hamburger */
             }
         }
 
@@ -297,7 +342,38 @@
             }
         }
 
-        /* HERO */
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 0 15px;
+            }
+
+            .navbar .nav-link {
+                margin: 0 8px;
+                font-size: 0.95rem;
+            }
+
+            .navbar .btn-cta {
+                padding: 10px 20px;
+                margin-left: 15px;
+            }
+
+            .hamburger {
+                width: 25px;
+                height: 18px;
+            }
+
+            .hamburger span:nth-child(3) {
+                top: 15px;
+            }
+
+            /* Ajustes adicionais para mobile-menu */
+            .mobile-menu .nav-link {
+                font-size: 1rem;
+                margin: 10px 0;
+            }
+        }
+
+        /* 7. Hero Section */
         .hero {
             position: relative;
             padding: 150px 20px;
@@ -388,7 +464,7 @@
             }
         }
 
-        /* Seções */
+        /* 8. Seções */
         .section {
             padding: 100px 20px;
             max-width: 1200px;
@@ -414,7 +490,7 @@
             border-radius: 3px;
         }
 
-        /* Produto Principal */
+        /* 9. Product Section */
         .product-section {
             display: flex;
             flex-wrap: wrap;
@@ -486,7 +562,7 @@
             transform: scale(1.05);
         }
 
-        /* Disciplinas */
+        /* 10. Disciplinas */
         .disciplinas {
             display: flex;
             flex-wrap: wrap;
@@ -505,7 +581,7 @@
             min-width: 180px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
             color: var(--text);
         }
 
@@ -515,7 +591,7 @@
             color: #fff;
         }
 
-        /* Seção Ideal */
+        /* 11. Ideal Section */
         .ideal-section {
             background: #fafafa;
             padding: 80px 20px;
@@ -551,17 +627,15 @@
 
         .ideal-list li::before {
             content: "\f058";
-            font-family: 'Font Awesome 5 Free';
+            /* Ícone de check do Font Awesome */
+            font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             color: var(--primary);
-            font-size: 1.2rem;
+            margin-right: 10px;
+            font-size: 1rem;
         }
 
-        .ideal-section li::before {
-            color: #fff;
-        }
-
-        /* Depoimentos */
+        /* 12. Testemunhos */
         .testimonials-section {
             background: #fff;
             padding: 80px 20px;
@@ -627,7 +701,7 @@
             flex-grow: 1;
         }
 
-        /* Quem Sou Eu */
+        /* 13. Quem Sou Eu */
         .quem-sou-eu {
             background: #fafafa;
             text-align: center;
@@ -649,14 +723,13 @@
 
         .quem-sou-eu p {
             max-width: 700px;
-            margin: 0 auto;
-            margin-bottom: 40px;
+            margin: 0 auto 40px;
             font-size: 1.1rem;
             line-height: 1.7;
             color: var(--text);
         }
 
-        /* Carrossel */
+        /* 14. Carrossel */
         .carrossel-section .swiper-container {
             padding: 20px 0;
         }
@@ -670,7 +743,7 @@
             flex: 0 0 auto;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
         }
 
         .carrossel-item:hover {
@@ -689,7 +762,7 @@
             color: var(--text);
         }
 
-        /* Footer */
+        /* 15. Footer */
         .footer {
             padding: 50px 20px;
             text-align: center;
@@ -735,7 +808,7 @@
             color: var(--primary);
         }
 
-        /* Botão Back to Top */
+        /* 16. Botão Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -761,26 +834,10 @@
             font-size: 1.5rem;
         }
 
+        /* 17. Seção Conteúdo Cursos */
         .section#conteudo-cursos {
             padding: 60px 20px;
-            background-color: var(--background);
-        }
-
-        .section#conteudo-cursos h2 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .section#conteudo-cursos p {
-            font-size: 1rem;
-            color: var(--text-color);
-        }
-
-        /* Estilos da Seção */
-        .section#conteudo-cursos {
-            padding: 60px 20px;
-            background-color: var(--background);
+            background-color: var(--bg-light);
         }
 
         .section#conteudo-cursos h2 {
@@ -791,12 +848,11 @@
 
         .section#conteudo-cursos p {
             font-size: 1.1rem;
-            color: var(--text-color);
+            color: var(--text);
             margin-bottom: 40px;
         }
 
-
-        /* Estilos do Accordion */
+        /* 18. Accordion Customizado */
         .accordion-custom .accordion-item {
             border: none;
             border-radius: 12px;
@@ -838,11 +894,9 @@
             transition: transform 0.3s;
         }
 
-
         .accordion-custom .accordion-button:not(.collapsed)::after {
-            transform: translateY(-50%) rotate(0deg);
+            transform: translateY(-50%) rotate(180deg);
         }
-
 
         .accordion-custom .accordion-button:focus {
             box-shadow: none;
@@ -850,7 +904,7 @@
 
         .accordion-custom .accordion-body {
             background: var(--card-bg);
-            color: var(--text-color);
+            color: var(--text);
             padding: 25px;
             border-top: 1px solid var(--border-color);
             transition: all 0.3s;
@@ -893,164 +947,10 @@
             font-size: 1rem;
         }
 
-
-        /* Responsividade */
-        @media (max-width: 992px) {
-            .accordion-custom .accordion-body ul.grid-list {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .section#conteudo-cursos h2 {
-                font-size: 2rem;
-            }
-
-            .section#conteudo-cursos p {
-                font-size: 1rem;
-                margin-bottom: 30px;
-            }
-
-            .accordion-custom .accordion-button {
-                font-size: 1.1rem;
-                padding: 18px;
-            }
-
-            .accordion-custom .accordion-body {
-                padding: 20px;
-            }
-
-            .accordion-custom .accordion-body ul.grid-list {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            }
-        }
-
-        @media (max-width: 576px) {
-            .accordion-custom .accordion-body ul.grid-list {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .btn-cta {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .product-section {
-                flex-direction: column;
-            }
-
-            .product-video iframe {
-                height: 220px;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .navbar .nav-link {
-                margin: 0 10px;
-            }
-
-            .product-video iframe {
-                height: 180px;
-            }
-
-            .disciplinas {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .ideal-list li {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .product-text h3 {
-                font-size: 1.8rem;
-            }
-
-            .new-price {
-                font-size: 1.6rem;
-            }
-
-            .disciplina-item {
-                min-width: 160px;
-            }
-
-            .carrossel-section .swiper-container {
-                padding: 20px 0;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .navbar .nav-link {
-                display: none;
-            }
-
-            .navbar .dropdown-menu {
-                width: 100%;
-            }
-
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 0.8rem;
-            }
-
-            .btn-cta {
-                padding: 10px 25px;
-                font-size: 1rem;
-            }
-
-            .product-text h3 {
-                font-size: 1.5rem;
-            }
-
-            .product-text p {
-                font-size: 1rem;
-            }
-
-            .new-price {
-                font-size: 1.4rem;
-            }
-
-            .btn-enroll {
-                padding: 12px 35px;
-                font-size: 1rem;
-            }
-
-            .carrossel-section .swiper-container {
-                padding: 20px 0;
-            }
-        }
-
-        /* Estilos para o Novo Bloco: Curso Completo de RLM */
+        /* 19. Curso Completo de RLM */
         .section.curso-rlm {
             margin-top: 100px;
             background: #f9f9f9;
-            /* Fundo suave para destaque */
             padding: 80px 20px;
             text-align: center;
         }
@@ -1085,7 +985,7 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        /* Botão Flutuante do WhatsApp */
+        /* 20. Botão Flutuante do WhatsApp */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -1100,18 +1000,18 @@
             font-size: 30px;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             z-index: 1500;
-            /* Certifique-se de que esteja acima de outros elementos */
+            /* Acima de outros elementos */
             display: flex;
             align-items: center;
             justify-content: center;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
         }
 
         .whatsapp-float:hover {
             background-color: #3cff00;
             /* Cor do WhatsApp ao passar o mouse */
             transform: scale(1.1);
-            cursor: pointer;
         }
 
         .whatsapp-float i {
@@ -1119,7 +1019,7 @@
             /* Evita que o ícone capture eventos de clique */
         }
 
-        /* Responsividade */
+        /* Responsividade para o WhatsApp Float */
         @media (max-width: 768px) {
             .whatsapp-float {
                 width: 50px;
@@ -1128,46 +1028,95 @@
                 right: 20px;
                 font-size: 24px;
             }
-        }/* Seção Desenvolvido por */
-.developed-by {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.9rem;
-    color: #aaa;
-}
+        }
 
-.developed-by a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none; /* Remove underline do link */
-    color: inherit; /* Herda a cor do texto */
-}
+        /* 21. Seção Desenvolvido por */
+        .developed-by {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
 
-.developed-by a span {
-    margin-right: 5px;
-}
+        .developed-by a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            /* Remove underline do link */
+            color: inherit;
+            /* Herda a cor do texto */
+        }
 
-.developed-by img {
-    height: 30px; /* Ajuste o tamanho conforme necessário */
-    transition: transform 0.3s ease;
-}
+        .developed-by a span {
+            margin-right: 5px;
+        }
 
-.developed-by a:hover img,
-.developed-by a:focus img {
-    transform: scale(1.1);
-}
+        .developed-by img {
+            height: 30px;
+            /* Ajuste o tamanho conforme necessário */
+            transition: transform 0.3s ease;
+        }
 
-@media (max-width: 576px) {
-    .developed-by img {
-        height: 25px; /* Tamanho menor para dispositivos móveis */
-    }
+        .developed-by a:hover img,
+        .developed-by a:focus img {
+            transform: scale(1.1);
+        }
 
-    .developed-by {
-        font-size: 0.8rem; /* Fonte ligeiramente menor */
-    }
-}
+        @media (max-width: 576px) {
+            .developed-by img {
+                height: 25px;
+                /* Tamanho menor para dispositivos móveis */
+            }
 
+            .developed-by {
+                font-size: 0.8rem;
+                /* Fonte ligeiramente menor */
+            }
+        }
+
+        /* 22. Scrollbar Personalizado */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e05574;
+        }
+
+        /* 23. Seleção de Texto */
+        ::selection {
+            background: var(--secondary);
+            color: #fff;
+        }
+
+        /* 24. Acessibilidade: Foco nos Botões e Links */
+        .text-content .btn:focus,
+        .course-card .btn:focus,
+        .cta .btn:focus,
+        .about-text .btn-primary:focus,
+        .back-to-top:focus,
+        .whatsapp-float:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 101, 132, 0.5);
+        }
+
+        /* 25. Redução de Animações para Preferências de Usuário */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -1246,13 +1195,22 @@
         <section class="section curso-rlm" id="curso-rlm" data-aos="fade-up">
             <div class="container">
                 <h2>Curso Completo de Matemática Básica</h2>
-                <p>Alcance sua aprovação em concursos públicos com o <strong>Curso Completo de Raciocínio Lógico Matemático (RLM)</strong>, que inclui <strong>1001 questões resolvidas e comentadas</strong>. Desenvolvido por Alan Soares, um dos maiores especialistas em preparação para concursos no Brasil, este curso oferece todas as ferramentas necessárias para você conquistar sua vaga.</p>
-                <p>Com <strong>materiais de apoio em PDF</strong> e um <strong>extenso banco de questões</strong>, você terá acesso a conteúdos exclusivos que facilitam o aprendizado e a fixação do conhecimento. Cada aula é cuidadosamente estruturada para que você aprenda de forma eficaz e domine as técnicas essenciais para resolver questões de RLM com confiança e precisão.</p>
-                <p>Ao praticar com as <strong>1001 questões comentadas</strong>, você não apenas reforça seu entendimento, mas também desenvolve estratégias inteligentes para enfrentar os desafios dos concursos públicos. Este curso é a preparação ideal para quem deseja estar um passo à frente e garantir uma aprovação tranquila e bem-sucedida.</p>
-                
+                <p>Alcance sua aprovação em concursos públicos com o <strong>Curso Completo de Raciocínio Lógico
+                        Matemático (RLM)</strong>, que inclui <strong>1001 questões resolvidas e comentadas</strong>.
+                    Desenvolvido por Alan Soares, um dos maiores especialistas em preparação para concursos no Brasil,
+                    este curso oferece todas as ferramentas necessárias para você conquistar sua vaga.</p>
+                <p>Com <strong>materiais de apoio em PDF</strong> e um <strong>extenso banco de questões</strong>, você
+                    terá acesso a conteúdos exclusivos que facilitam o aprendizado e a fixação do conhecimento. Cada
+                    aula é cuidadosamente estruturada para que você aprenda de forma eficaz e domine as técnicas
+                    essenciais para resolver questões de RLM com confiança e precisão.</p>
+                <p>Ao praticar com as <strong>1001 questões comentadas</strong>, você não apenas reforça seu
+                    entendimento, mas também desenvolve estratégias inteligentes para enfrentar os desafios dos
+                    concursos públicos. Este curso é a preparação ideal para quem deseja estar um passo à frente e
+                    garantir uma aprovação tranquila e bem-sucedida.</p>
+
             </div>
         </section>
-        
+
 
         <h2 class="mt-5">Disciplinas Inclusas</h2>
         <div class="disciplinas">
@@ -1266,7 +1224,6 @@
             <h2 class="text-center">Disciplinas que você terá acesso</h2>
             <p class="text-center mb-5">Clique na disciplina para visualizar todas as matérias disponíveis</p>
             <div class="accordion accordion-custom" id="accordionCursos">
-                <!-- Matemática Básica para Concursos -->
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="headingBasica">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -1280,15 +1237,35 @@
                             <ul class="grid-list">
                                 <li class="grid-item"><span>Soma e Subtração com Vírgula</span></li>
                                 <li class="grid-item"><span>Multiplicação com Vírgula</span></li>
+                                <li class="grid-item"><span>Divisão com Vírgula</span></li>
+                                <li class="grid-item"><span>Ordem das Operações</span></li>
+                                <li class="grid-item"><span>Soma e Subtração de Frações</span></li>
+                                <li class="grid-item"><span>Soma de Frações com Denominador Diferente</span></li>
+                                <li class="grid-item"><span>Soma e Subtração de Frações em Casos Especiais</span></li>
+                                <li class="grid-item"><span>Potenciação</span></li>
+                                <li class="grid-item"><span>Propriedades de Potenciação</span></li>
+                                <li class="grid-item"><span>Progressão Aritmética</span></li>
                                 <li class="grid-item"><span>Operações Elementares</span></li>
+                                <li class="grid-item"><span>Mmc e Mdc</span></li>
+                                <li class="grid-item"><span>Potenciação e Propriedades da Potenciação</span></li>
+                                <li class="grid-item"><span>Números Proporcionais</span></li>
                                 <li class="grid-item"><span>Razão</span></li>
-                                <li class="grid-item"><span>Regra de Três</span></li>
+                                <li class="grid-item"><span>Proporção</span></li>
+                                <li class="grid-item"><span>Regra de Três Simples</span></li>
+                                <li class="grid-item"><span>Regra de Três Composta</span></li>
                                 <li class="grid-item"><span>Porcentagem</span></li>
+                                <li class="grid-item"><span>Sistema de Equações</span></li>
+                                <li class="grid-item"><span>Equação do 1º Grau</span></li>
+                                <li class="grid-item"><span>Equação do 2º Grau</span></li>
+                                <li class="grid-item"><span>Conjuntos</span></li>
+                                <li class="grid-item"><span>Operações com Conjuntos</span></li>
+                                <li class="grid-item"><span>Problemas com Dois e Três Conjuntos</span></li>
                                 <li class="grid-item"><span>Questões</span></li>
                             </ul>
                         </div>
                     </div>
                 </div>
+                
 
                 <!-- Questões dos Principais Concursos -->
                 <div class="accordion-item">
@@ -1427,10 +1404,12 @@
                     class="fab fa-instagram"></i></a>
             <a target="_blank" href="https://www.youtube.com/@exatascomalansoares" aria-label="YouTube"><i
                     class="fab fa-youtube"></i></a>
-        </div> <div class="developed-by mt-4">
+        </div>
+        <div class="developed-by mt-4">
             <p>
-                <a href="https://innovaxhouse.com.br" target="_blank" rel="noopener noreferrer" aria-label="Visite o site do desenvolvedor">
-                    <span>Desenvolvido com <i class="fas fa-heart" style="color: rgb(31, 255, 31);"></i>  por</span>
+                <a href="https://innovaxhouse.com.br" target="_blank" rel="noopener noreferrer"
+                    aria-label="Visite o site do desenvolvedor">
+                    <span>Desenvolvido com <i class="fas fa-heart" style="color: rgb(31, 255, 31);"></i> por</span>
                     <img src="imgs/innovax.png" alt="Logo da Innovax House" loading="lazy">
                 </a>
             </p>
