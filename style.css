@@ -52,6 +52,7 @@ transition: background var(--transition-speed), box-shadow var(--transition-spee
 height: var(--navbar-height);
 position: absolute;
 width: 100%;
+margin-top: 45px;
 top: 15; /* Changed from 10 to 0 for proper positioning */
 z-index: 1500;
 padding: 0 50px;
@@ -260,7 +261,7 @@ margin-left: 20px;
 header {
 position: relative;
 min-height: 100vh;
-margin-top: 35px;
+margin-top: 50;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -492,15 +493,17 @@ font-size: 0.95rem;
 }
 
 /* Top Bar */
+/* Top Bar */
 .top-bar {
     background: var(--primary);
     color: #fff;
     text-align: center;
     padding: 10px 0;
     font-size: 1rem;
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
+    height: var(--top-bar-height); /* Define a altura usando a variável */
     z-index: 1600;
     transition: background var(--transition-speed);
 }
@@ -510,6 +513,7 @@ font-size: 0.95rem;
     margin-right: 10px;
     animation: pulseIcon 2s infinite;
 }
+
 
 @keyframes pulseIcon {
 
@@ -591,6 +595,22 @@ font-size: 0.95rem;
     overflow: hidden;
 }
 
+.parent-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;    /* Centraliza verticalmente, se necessário */
+    flex-direction: column; /* Organiza os itens em coluna */
+}
+
+.section-title {
+    font-size: 2.6rem;
+    font-family: var(--font-heading);
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    margin-bottom: 60px;
+}
 
 
 /* Contêiner da Imagem */

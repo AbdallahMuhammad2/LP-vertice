@@ -1,1095 +1,241 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assinatura Premium - Matemática e Física para o ENEM</title>
-
-    <!-- SEO -->
-    <meta name="description"
-        content="Assine nossa plataforma premium e domine Matemática e Física para garantir sua aprovação no ENEM. Aulas exclusivas, questões comentadas e muito mais!">
-    <meta property="og:title" content="Assinatura Premium - Matemática e Física para o ENEM">
-    <meta property="og:description"
-        content="Assine nossa plataforma premium e domine Matemática e Física para garantir sua aprovação no ENEM. Aulas exclusivas, questões comentadas e muito mais!">
-    <meta property="og:image" content="URL_DA_IMAGEM_DE_DESTAQUE">
-    <meta property="og:url" content="URL_DA_SUA_PAGINA">
-
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8/swiper-bundle.min.css" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-
-    <!-- AOS Animation CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-
-    <!-- Custom CSS -->
-    <style>
-        :root {
-            --primary: #7f00ff;
-            --secondary: #e100ff;
-            --accent: #ff7eb9;
-            --text: #333;
-            --text-light: #ffffff;
-            --bg-light: #fdfdfd;
-            --font-main: 'Montserrat', sans-serif;
-            --navbar-height: 80px;
-            --transition-speed: 0.3s;
-            --shadow-dark: rgba(0, 0, 0, 0.3);
-            --btn-shadow: rgba(0, 0, 0, 0.2);
-        }
-
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: var(--font-main);
-            color: var(--text);
-            background: var(--bg-light);
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-weight: 900;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* Aviso no Topo */
-        .top-notice {
-            background-color: red;
-            color: var(--notice-text);
-            text-align: center;
-            padding: 15px 0;
-            font-weight: bold;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 2000;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* HERO */
-        .hero {
-    background: url('imgs/backgrounds/abre-assinatura-jhoni-zini-57a.jpg') center center / cover no-repeat;
-    position: relative;
-    padding: 100px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-light);
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Escurecer o fundo para melhor leitura */
-    z-index: 1;
-}
-
-.hero .container {
-    z-index: 2;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-}
-
-.hero-video iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-text {
-    text-align: left;
-    max-width: 500px;
-}
-
-.hero-text h1 {
-    font-size: 2.8rem;
-    font-weight: 900;
-    line-height: 1.2;
-    margin-bottom: 20px;
-}
-
-.hero-text p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    line-height: 1.6;
-}
-
-.hero-text .price {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-.hero-text .old-price {
-    text-decoration: line-through;
-    color: #f00;
-    margin-right: 10px;
-}
-
-.hero-text .new-price {
-    color: var(--accent);
-    font-size: 2rem;
-}
-
-.hero-text .btn {
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, background-color 0.3s;
-}
-
-.hero-text .btn:hover {
-    transform: translateY(-3px);
-    background-color: #218838;
-}
-
-
-        .btn-cta {
-            display: inline-block;
-            padding: 15px 50px;
-            border-radius: 30px;
-            background: linear-gradient(to right, #ffd700, #ffa500);
-            color: #fff;
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-        }
-
-        .btn-cta:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-            background: linear-gradient(to right, #ffa500, #ffd700);
-        }
-
-        /* Seções */
-        .section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            text-align: center;
-        }
-
-        .section h2 {
-            font-size: 2.6rem;
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-            color: var(--primary);
-        }
-
-        .section h2::after {
-            content: "";
-            display: block;
-            width: 120px;
-            height: 6px;
-            background: var(--primary);
-            margin: 20px auto 0;
-            border-radius: 3px;
-        }
-
-        /* Produto Principal */
-        .product-section {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 50px;
-            justify-content: center;
-        }
-
-        .product-text {
-            flex: 1 1 500px;
-            text-align: center;
-        }
-
-        .product-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        .product-text p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: #ff0000;
-            margin-right: 10px;
-        }
-
-        .new-price {
-            font-size: 2rem;
-            color: var(--primary);
-            font-weight: 900;
-        }
-
-        .btn-enroll {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: #fff;
-            border-radius: 50px;
-            padding: 15px 50px;
-            margin-top: 40px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn-enroll:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-video {
-            flex: 1 1 500px;
-            text-align: center;
-        }
-
-        .product-video iframe {
-            width: 100%;
-            height: 320px;
-            border: none;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .product-video iframe:hover {
-            transform: scale(1.05);
-        }
-
-        /* Seção de Benefícios */
-        .benefits-section {
-            background: var(--inclusive-section-bg);
-            padding: 80px 20px;
-        }
-
-        .benefits-section h2 {
-            color: var(--primary);
-            margin-bottom: 40px;
-        }
-
-        .benefits-section ul {
-            list-style: none;
-            padding: 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .benefits-section li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .benefits-section li i {
-            margin-right: 10px;
-            color: var(--highlight-green);
-        }
-
-        /* Tabela de Preços */
-        .pricing-section {
-            background: #fff;
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .pricing-card {
-            border: none;
-            text-align: center;
-            background: transparent;
-        }
-
-        .pricing-card h3,
-        .pricing-card .price {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .pricing-card ul {
-            list-style: none;
-            margin: 20px auto;
-            padding: 0;
-            max-width: 500px;
-            text-align: left;
-        }
-
-        .pricing-card ul li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-left: 25px;
-            font-size: 1.1rem;
-        }
-
-        .pricing-card ul li::before {
-            content: "\2714"; /* Checkmark */
-            position: absolute;
-            left: 0;
-            color: var(--highlight-green);
-        }
-
-        /* Seção Inclusiva */
-        .inclusive-section {
-            background: url('imgs/backgrounds/rrt1.png') center center / cover no-repeat;
-            padding: 100px 20px;
-            text-align: center;
-            color: #333;
-            position: relative;
-        }
-
-        .inclusive-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(30, 60, 114, 0.7); /* Overlay para melhorar legibilidade */
-            z-index: 1;
-        }
-
-        .inclusive-section .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .inclusive-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            color: var(--text-light);
-        }
-
-        .inclusive-section ul {
-            list-style: none;
-            padding: 0;
-            max-width: 800px;
-            margin: 0 auto 20px;
-        }
-
-        .inclusive-section li {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-light);
-        }
-
-        .inclusive-section li i {
-            margin-right: 10px;
-            color: var(--highlight-green);
-        }
-
-        .inclusive-section .btn-enroll {
-            background: var(--highlight-green);
-            color: #fff;
-            padding: 15px 50px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .inclusive-section .btn-enroll:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            background: #218838;
-        }
-
-        /* Depoimentos */
-        .testimonials-section {
-            background: #fff;
-            padding: 80px 20px;
-            color: #333;
-        }
-
-        .testimonials-section h2 {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .testimonial-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .testimonial-card {
-            background: #f9f9f9;
-            border: 1px solid #eee;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            font-style: italic;
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 100%;
-            max-width: 500px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .testimonial-content {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            width: 100%;
-            justify-content: center;
-        }
-
-        .testimonial-content img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            margin-right: 15px;
-            object-fit: cover;
-            border: 2px solid var(--primary);
-        }
-
-        .testimonial-content strong {
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #555;
-            text-align: center;
-        }
-
-        /* Quem Sou Eu */
-        .quem-sou-eu {
-            background: #fafafa;
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        .quem-sou-eu img {
-            max-width: 200px;
-            border-radius: 50%;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .quem-sou-eu img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .quem-sou-eu p {
-            max-width: 700px;
-            margin: 0 auto;
-            margin-bottom: 40px;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--text);
-        }
-
-        /* Footer */
-        .footer {
-            padding: 40px 20px;
-            text-align: center;
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            position: relative;
-        }
-
-        .footer p {
-            margin: 10px 0;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: var(--footer-text);
-            transition: color 0.3s;
-        }
-
-        .footer a:hover {
-            color: var(--primary);
-        }
-
-        .social-icons a {
-            color: var(--footer-text);
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary);
-        }
-
-        .developed-by {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-
-        .developed-by a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .developed-by a span {
-            margin-right: 5px;
-        }
-
-        .developed-by img {
-            height: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .developed-by a:hover img,
-        .developed-by a:focus img {
-            transform: scale(1.1);
-        }
-
-        /* Botão Flutuante do WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25D366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 24px;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-            z-index: 1500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #3cff00;
-            transform: scale(1.1);
-            cursor: pointer;
-        }
-
-        .whatsapp-float i {
-            pointer-events: none;
-        }
-
-        /* Responsividade */
-        @media (max-width: 1200px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .btn-cta {
-                padding: 12px 30px;
-                font-size: 1rem;
-            }
-
-            .product-section {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .product-video iframe {
-                height: 220px;
-            }
-
-            .section {
-                padding: 60px 20px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .product-video iframe {
-                height: 180px;
-            }
-
-            .ideal-list li {
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .product-text h3 {
-                font-size: 1.8rem;
-            }
-
-            .new-price {
-                font-size: 1.6rem;
-            }
-
-            .disciplina-item {
-                min-width: 160px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero p {
-                font-size: 0.8rem;
-            }
-
-            .btn-cta {
-                padding: 10px 25px;
-                font-size: 1rem;
-            }
-
-            .product-text h3 {
-                font-size: 1.5rem;
-            }
-
-            .product-text p {
-                font-size: 1rem;
-            }
-
-            .new-price {
-                font-size: 1.4rem;
-            }
-
-            .btn-enroll {
-                padding: 12px 35px;
-                font-size: 1rem;
-            }
-
-            .section {
-                padding: 40px 15px;
-            }
-        }
-
-        .image-container {
-            text-align: center;
-            margin-top: 20px; /* Ajuste conforme necessário */
-            padding-top: 20px;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
-
-        /* Melhorias adicionais para animações e transições */
-        .accordion-button {
-            background-color: #f9f9f9;
-            color: var(--text);
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-            padding: 15px;
-            border-radius: 5px;
-            margin-bottom: 10px;
-        }
-
-        .accordion-button.collapsed {
-            background-color: #f9f9f9;
-            color: var(--text);
-        }
-
-        .accordion-button:not(.collapsed) {
-            background-color: var(--primary);
-            color: #fff;
-        }
-
-        .accordion-button::after {
-            transition: transform var(--transition-speed);
-        }
-
-        .accordion-button.collapsed::after {
-            transform: rotate(-90deg);
-        }
-
-        .accordion-button:not(.collapsed)::after {
-            transform: rotate(0deg);
-        }
-
-        /* Grid list custom */
-        .grid-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .grid-item {
-            background: #fff;
-            padding: 10px 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, background 0.3s, color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: var(--text);
-        }
-
-        .grid-item:hover {
-            transform: translateY(-5px);
-            background: var(--primary);
-            color: #fff;
-        }
-    </style>
+    <title>Missão 800+ em Matemática no ENEM</title>
+    <link rel="stylesheet" href="stylepremium.css">
+    <!-- Link para ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
-    <!-- Aviso no Topo -->
-    <div class="top-notice">
-        ATENÇÃO: ÚLTIMOS DIAS DA BLACK FRIDAY JHONI ZINI!!!
-    </div>
-<section class="hero" id="home" data-aos="fade-down">
-    <div class="container d-flex align-items-center justify-content-center flex-wrap">
-        <div class="hero-video flex-grow-1 text-center">
-            <iframe src="URL_DO_VIDEO" frameborder="0" allowfullscreen></iframe>
+    <!-- 1. Topo -->
+    <header class="topo">
+        <div class="container">
+            <div class="logo">
+                <img src="caminho-para-sua-logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="https://t.me/seu-canal-telegram" target="_blank">Canal do Telegram</a></li>
+                    <li><a href="https://xequematenem.com.br/materiais-gratuitos/" target="_blank">Materiais Gratuitos</a></li>
+                    <li><a href="#area-do-aluno">Área do Aluno</a></li>
+                    <li class="dropdown">
+                        <a href="#">Cursos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="#produto-principal">Produto Principal</a></li>
+                            <li><a href="#produto-secundario">Produto Secundário</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <div class="hero-text flex-grow-1 text-light">
-            <div class="image-container">
-                <img src="imgs/assinatura.png" alt="Assinatura Premium">
-            </div>            <p class="mb-4">
-                Videoaulas atualizadas para você gabaritar exatas nos próximos concursos e conquistar sua aprovação em 2025.
-            </p>
-            <p class="price mb-4">
-                <span class="old-price">De R$1.200</span>
-                <span class="new-price">R$297</span>
-                <span class="badge bg-danger">75% OFF</span>
-            </p>
-            <p class="text-muted">ou 12x de R$31,44</p>
-            <a href="#matricula" class="btn btn-success mt-3">CLIQUE AQUI PARA FAZER SUA MATRÍCULA</a>
+    </header>
+
+    <!-- 2. HeadLine 01 -->
+    <section class="headline-01">
+        <div class="container">
+            <div class="headline-content">
+                <h1>Missão 800+ em Matemática no ENEM</h1>
+                <p>Alcance 800+ em matemática no ENEM estudando menos da metade da matéria!</p>
+                <a href="#checkout" class="btn-cta">QUERO SER APROVADO</a>
+                <p class="subtexto">Método baseado nos padrões do ENEM que ninguém te conta.</p>
+            </div>
+            <div class="headline-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/seu-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
-    </div>
-</section>
-
-
-    <!-- Seção de Benefícios -->
-    <section class="benefits-section section" id="beneficios" data-aos="fade-up">
-        <h2>Benefícios da Assinatura Premium</h2>
-        <ul class="list-unstyled">
-            <li><i class="fas fa-check-circle"></i>Aulas detalhadas e aprofundadas</li>
-            <li><i class="fas fa-check-circle"></i>Questões comentadas e simulados exclusivos</li>
-            <li><i class="fas fa-check-circle"></i>Suporte personalizado para dúvidas</li>
-            <li><i class="fas fa-check-circle"></i>Acesso ilimitado por 365 dias</li>
-        </ul>
     </section>
 
-    <!-- Tabela de Preços -->
-    <section class="pricing-section section" id="precos" data-aos="fade-up">
-        <h2>Tabela de Preços</h2>
-        <div class="pricing-card">
-            <h3>Plano Único</h3>
-            <p class="new-price">R$297</p>
+    <!-- 4. Bloco de Ícones e Benefícios -->
+    <section class="beneficios">
+        <div class="container">
+            <div class="beneficio">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Cronograma Adaptativo</h3>
+                <p>Adaptado ao tempo de estudos até o ENEM.</p>
+            </div>
+            <div class="beneficio">
+                <i class="fas fa-video"></i>
+                <h3>Aula Semanal ao Vivo</h3>
+                <p>No Zoom.</p>
+            </div>
+            <div class="beneficio">
+                <i class="fas fa-question-circle"></i>
+                <h3>Monitoria para Dúvidas</h3>
+                <p>Suporte contínuo para suas perguntas.</p>
+            </div>
+            <div class="beneficio">
+                <i class="fas fa-undo-alt"></i>
+                <h3>7 Dias de Garantia</h3>
+                <p>Sem risco para você experimentar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Curso 100% ATUALIZADO -->
+    <section class="curso-atualizado">
+        <div class="container">
+            <h2>Curso 100% ATUALIZADO e o ÚNICO do Brasil totalmente focado na Matemática para o ENEM + Foguete 3D.</h2>
+        </div>
+    </section>
+
+    <!-- 6. Mockup da Plataforma -->
+    <section class="mockup-plataforma">
+        <div class="container">
+            <div class="mockup-imagem">
+                <img src="caminho-para-mockup-notebook.png" alt="Plataforma">
+            </div>
+            <div class="mockup-texto">
+                <h3>O que vai te levar a chegar nos 800+</h3>
+                <ul>
+                    <li>Aula semanal ao vivo no Zoom</li>
+                    <li>Cronograma adaptativo</li>
+                    <li>Análise individual (diagnóstico) do seu simulado</li>
+                    <li>Suporte com Monitores e Professor</li>
+                    <li>Comunidade secreta para alunos</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Banner de Valor do Produto -->
+    <section class="valor-produto">
+        <div class="container">
+            <h3>Tudo isso vale R$ 6.400,00. Mas você não precisa investir tudo isso.</h3>
+            <p>O investimento é de <strong>R$ 1.297,00</strong> ou <strong>12x de R$ 66,42</strong> ou à vista <strong>R$ 597,00</strong>.</p>
+        </div>
+    </section>
+
+    <!-- 8. Garantia de Risco Zero -->
+    <section class="garantia">
+        <div class="container">
+            <h3>Garantia de Risco Zero</h3>
+            <p>Ao se inscrever no extensivo você terá uma garantia incondicional de 7 dias.</p>
+            <a href="#checkout" class="btn-cta">QUERO SER APROVADO</a>
+            <p class="subtexto">Que tal testar o maior curso de matemática para o ENEM por 7 dias sem compromisso?</p>
+        </div>
+    </section>
+
+    <!-- 9. Conheça o Professor -->
+    <section class="conheca-professor">
+        <div class="container">
+            <div class="professor-imagem">
+                <img src="caminho-para-foto-do-professor.jpg" alt="Professor Alan Soares">
+            </div>
+            <div class="professor-texto">
+                <h3>Alan Soares</h3>
+                <p>Cursou Física e Matemática pela Universidade Federal do Rio de Janeiro (UFRJ). Há 14 anos leciona e aplica, de forma produtiva e bem-humorada, metodologia para otimizar a pontuação na prova de Matemática do ENEM. Mais de 6.000 alunos em todo o Brasil já seguiram a metodologia e obtiveram resultados excepcionais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Dúvidas Frequentes -->
+    <section class="duvidas-frequentes">
+        <div class="container">
+            <h3>Ainda tem alguma dúvida que o Extensivo é a sua melhor chance de conquistar 800+ em Matemática no ENEM?</h3>
+            <a href="#checkout" class="btn-cta">QUERO SER APROVADO</a>
+            <div class="faq">
+                <div class="faq-item">
+                    <h4>a) Alan, o curso entrega realmente tudo isso mesmo que você promete?</h4>
+                    <p>Na verdade, não! Entrega muito mais 😎 A gente não consegue explicar em uma página como essa ou em um vídeo tudo o que você vai ter de benefícios ao se tornar um aluno Missão 800+ no ENEM. Os membros das turmas anteriores se surpreenderam quando eles tiveram o primeiro contato com a plataforma e com a comunidade. A gente ouve com muita frequência eles dizerem “por que eu perdi tanto tempo fazendo cursinho? Queria ter conhecido o Alan antes. Teria me poupado muito tempo.”.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>b) O curso é muito caro?</h4>
+                    <p>Deixa-me te perguntar: você já fez cursinho presencial? Quanto custa por mês? Eu conheço alguns que custam no mínimo de Mil a 3 mil reais por mês. E mesmo assim esses cursinhos não serão suficientes para sua aprovação, fazendo você perder mais 1 ou 2 anos da sua vida fazendo cursinho e acabar desistindo de entrar na Federal. Ou seja, pagar uma faculdade particular que poderá custar até uns R$7.000,00 reais por mês em um curso de medicina, por exemplo.
+                    Aí eu te pergunto: R$ 66,42 por mês ainda parece caro pra você?</p>
+                </div>
+                <div class="faq-item">
+                    <h4>c) Alan, será que vou conseguir estudar online?</h4>
+                    <p>Você é mais digital do que eu, do que os seus pais. Hoje, a maioria dos cursos que eu faço são online e para mim é muito melhor. Pois eu faço no meu tempo, reviso quantas vezes eu quero e ainda posso tirar dúvidas quando eu quiser. É exatamente isso que você terá acesso no curso. Além das aulas gravadas, você terá aulas ao vivo de mais ou menos 2 horas toda semana. Monitores treinados a sua disposição 24h por dia.
+                    A minha pergunta é: Será que você ainda consegue aprender no presencial melhor do que no online? Pense nisso!</p>
+                </div>
+                <div class="faq-item">
+                    <h4>d) Alan, vou ter algum tipo de ajuda?</h4>
+                    <p>Nós vamos pegar você pela mão. Quando você estiver dentro do Extensivo você vai ficar de cara com o nosso cuidado. Só para você ter uma ideia os nossos monitores muitas vezes respondem os nossos alunos no privado e depois de alguns dias geralmente eles entram em contato novamente para perguntar se deu tudo certo, se tem alguma dificuldade.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>e) Alan, fiz o ENEM várias vezes e não passei. Por que com você seria diferente?</h4>
+                    <p>Simples! Porque você ainda não estudou comigo!😎
+                    Eu não estou de brincadeira. Eu durmo e acordo, eu respiro pensando em como fazer com que mais e mais pessoas parem de perder tempo estudando errado para o Enem. Então, eu faço da sua pergunta a minha resposta. Porque comigo será diferente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. Conheça a Plataforma por Dentro -->
+    <section class="conheca-plataforma">
+        <div class="container">
+            <h3>Conheça a plataforma por dentro com uma pílula gratuita de Matemática Básica e materiais assertivos</h3>
+            <p>Conheça o único método de aprender matemática com base nos padrões e segredos do ENEM com o curso mais focado para o ENEM do Brasil.</p>
             <ul>
-                <li>Aulas de Matemática e Física</li>
-                <li>Questões Comentadas</li>
-                <li>Simulados Exclusivos</li>
-                <li>Suporte Personalizado</li>
+                <li>Simulados e mini-simulados com correções em vídeos</li>
+                <li>Macetes e Velocidades</li>
+                <li>Exercícios na régua do ENEM</li>
+                <li>Mapas mentais e flashcards</li>
+                <li>Modo tudo: Aulas ao vivo com diagnóstico</li>
             </ul>
-            <a href="#" class="btn-enroll">Quero ser aluno por R$297</a>
+            <a href="#cadastro" class="btn-cta">CONHECER A PLATAFORMA</a>
+            <div class="mockup-dispositivos">
+                <img src="caminho-para-mockup-notebook.png" alt="Notebook">
+                <img src="caminho-para-mockup-celular.png" alt="Celular">
+                <img src="caminho-para-mockup-ipad.png" alt="iPad">
+            </div>
         </div>
     </section>
 
-    <!-- Seção Inclusiva -->
-    <section class="inclusive-section section" id="inclusive-section" data-aos="fade-up">
+    <!-- 13. HeadLine Repetida -->
+    <section class="headline-repetida">
         <div class="container">
-            <h2>O que está incluso na Assinatura Completa 2025</h2>
-            <ul class="list-unstyled">
-                <li><i class="fas fa-check-circle"></i>Acesso a todas as aulas do Profº Jhoni Zini</li>
-                <li><i class="fas fa-check-circle"></i>Material de apoio em PDF</li>
-                <li><i class="fas fa-check-circle"></i>Atualizações conforme os editais são lançados</li>
-                <li><i class="fas fa-check-circle"></i>Centenas de Simulados e Questões Comentadas</li>
-                <li><i class="fas fa-check-circle"></i>Prazo de Acesso: 365 dias</li>
-            </ul>
-            <a href="#precos" class="btn-enroll"><i class="fas fa-arrow-right me-2"></i>Garanta sua assinatura agora</a>
+            <div class="headline-content">
+                <h1>Missão 800+ em Matemática no ENEM</h1>
+                <p>Alcance 800+ em matemática no ENEM estudando menos da metade da matéria!</p>
+                <a href="#checkout" class="btn-cta">QUERO 800+ NO ENEM 2025</a>
+            </div>
+            <div class="headline-video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/seu-video" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
-    <!-- Curso Completo de Matemática e Física -->
-    <section class="section curso-rlm" id="curso-rlm" data-aos="fade-up">
+    <!-- 14. Conheça o Professor Repetido -->
+    <section class="conheca-professor-repetido">
         <div class="container">
-            <h2>Curso Completo de Matemática e Física para o ENEM</h2>
-            <p>Alcance sua aprovação no ENEM com nosso <strong>Curso Completo de Matemática e Física</strong>, que inclui
-                <strong>1500 questões resolvidas e comentadas</strong>. Desenvolvido por especialistas, este curso oferece
-                todas as ferramentas necessárias para você dominar os tópicos mais cobrados.</p>
-            <p>Com <strong>materiais de apoio em PDF</strong> e um <strong>extenso banco de questões</strong>, você terá
-                acesso a conteúdos exclusivos que facilitam o aprendizado e a fixação do conhecimento. Cada aula é
-                cuidadosamente estruturada para que você aprenda de forma eficaz e domine as técnicas essenciais para
-                resolver questões de Matemática e Física com confiança e precisão.</p>
-            <p>Ao praticar com as <strong>1500 questões comentadas</strong>, você não apenas reforça seu entendimento, mas
-                também desenvolve estratégias inteligentes para enfrentar os desafios do ENEM. Este curso é a preparação
-                ideal para quem deseja estar um passo à frente e garantir uma aprovação tranquila e bem-sucedida.</p>
+            <div class="professor-imagem">
+                <img src="caminho-para-foto-do-professor.jpg" alt="Professor Alan Soares">
+            </div>
+            <div class="professor-texto">
+                <h3>Alan Soares</h3>
+                <p>Cursou Física e Matemática pela Universidade Federal do Rio de Janeiro (UFRJ). Há 14 anos leciona e aplica, de forma produtiva e bem-humorada, metodologia para otimizar a pontuação na prova de Matemática do ENEM. Mais de 6.000 alunos em todo o Brasil já seguiram a metodologia e obtiveram resultados excepcionais.</p>
+            </div>
         </div>
     </section>
 
-    <!-- Disciplinas Inclusas -->
-    <section class="section" id="disciplinas" data-aos="fade-up">
-        <h2>Disciplinas Inclusas</h2>
-        <div class="disciplinas">
-            <div class="disciplina-item"><i class="fas fa-calculator me-2"></i>Matemática</div>
-            <div class="disciplina-item"><i class="fas fa-atom me-2"></i>Física</div>
-        </div>
-    </section>
-
-    <!-- Conteúdo dos Cursos -->
-    <section class="section" id="conteudo-cursos" data-aos="fade-up">
+    <!-- 11 & 15. Rodapé -->
+    <footer class="rodape">
         <div class="container">
-            <h2 class="text-center">Conteúdo das Disciplinas</h2>
-            <p class="text-center mb-5">Clique na disciplina para visualizar todas as matérias disponíveis</p>
-            <div class="accordion accordion-custom" id="accordionCursos">
-                <!-- Matemática -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingMatematica">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseMatematica" aria-expanded="false" aria-controls="collapseMatematica">
-                            Matemática
-                        </button>
-                    </h2>
-                    <div id="collapseMatematica" class="accordion-collapse collapse" aria-labelledby="headingMatematica"
-                        data-bs-parent="#accordionCursos">
-                        <div class="accordion-body">
-                            <ul class="grid-list">
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Álgebra</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Geometria</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Trigonometria</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Estatística</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Probabilidade</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Funções</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Cálculo</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Equações</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Progressões</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Geometria Analítica</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Física -->
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingFisica">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFisica" aria-expanded="false" aria-controls="collapseFisica">
-                            Física
-                        </button>
-                    </h2>
-                    <div id="collapseFisica" class="accordion-collapse collapse" aria-labelledby="headingFisica"
-                        data-bs-parent="#accordionCursos">
-                        <div class="accordion-body">
-                            <ul class="grid-list">
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Mecânica</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Termologia</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Ondulatória</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Eletromagnetismo</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Óptica</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Física Moderna</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Dinâmica</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Estática</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Gravitação</li>
-                                <li class="grid-item"><i class="fas fa-check me-2"></i>Hidrostática</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="rodape-logo">
+                <img src="caminho-para-sua-logo.png" alt="Logo">
+            </div>
+            <div class="rodape-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <p>Todos os direitos reservados © 2024</p>
+            </div>
+            <div class="rodape-redes">
+                <a href="https://instagram.com/seu-perfil" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com/seu-canal" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://tiktok.com/@seu-perfil" target="_blank"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
-    </section>
-
-    <!-- Seção Ideal -->
-    <section class="section ideal-section" id="por-que-ideal" data-aos="fade-up">
-        <h2>Por que a Assinatura Premium é Ideal para o ENEM?</h2>
-        <ul class="list-unstyled ideal-list">
-            <li><i class="fas fa-check-circle me-2"></i>Conteúdo atualizado e alinhado com o formato do ENEM</li>
-            <li><i class="fas fa-check-circle me-2"></i>Metodologia clara, objetiva e prática</li>
-            <li><i class="fas fa-check-circle me-2"></i>Suporte para tirar dúvidas + materiais em PDF</li>
-            <li><i class="fas fa-check-circle me-2"></i>Aulas dinâmicas e milhares de questões comentadas</li>
-        </ul>
-    </section>
-
-    <!-- Depoimentos -->
-    <section class="section testimonials-section" id="depoimentos" data-aos="fade-up">
-        <h2>O que Nossos Alunos Dizem</h2>
-        <div class="testimonial-container">
-            <!-- Depoimento 1 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/cases/case1.jpg" alt="Aluno 1" loading="lazy">
-                    <strong>Tay Azevedo</strong>
-                </div>
-                <p class="testimonial-text">"Com a assinatura premium, consegui melhorar significativamente minha
-                    pontuação em Matemática e Física no ENEM. As aulas são claras e as questões comentadas são
-                    fundamentais para o meu estudo!"</p>
-            </div>
-            <!-- Depoimento 2 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/cases/case2.jpg" alt="Aluno 2" loading="lazy">
-                    <strong>Letícia Carvalho</strong>
-                </div>
-                <p class="testimonial-text">"Não tinha confiança em Física, mas com as aulas e o suporte da plataforma
-                    premium, me senti preparada e consegui minha aprovação. Recomendo a todos que desejam um
-                    desempenho excelente no ENEM."</p>
-            </div>
-            <!-- Depoimento 3 -->
-            <div class="testimonial-card">
-                <div class="testimonial-content">
-                    <img src="imgs/cases/case3.png" alt="Aluno 3" loading="lazy">
-                    <strong>Miriam</strong>
-                </div>
-                <p class="testimonial-text">"As aulas são dinâmicas e o conteúdo é apresentado de forma que eu
-                    realmente entendi. As questões comentadas me ajudaram a fixar o conteúdo e a me sentir mais
-                    segura para a prova."</p>
-            </div>
-            <!-- Adicione mais depoimentos conforme necessário -->
-        </div>
-    </section>
-
-    <!-- Quem Sou Eu -->
-    <section class="quem-sou-eu section" id="sobre-nos" data-aos="fade-up">
-        <img src="imgs/alan/Alan.jpg" alt="Professor Jhoni Zini" loading="lazy">
-        <h2>Quem Sou Eu</h2>
-        <p>Sou Profº Jhoni Zini, mentor em Matemática e Física para o ENEM há mais de uma década. Minha missão é tornar essas
-            disciplinas acessíveis e compreensíveis, transformando dificuldades em pontos fortes. Ajudei milhares de
-            alunos a conquistarem suas vagas nas melhores instituições. Agora é a sua vez.</p>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <p>&copy; 2025 Profº Jhoni Zini. Todos os direitos reservados.</p>
-        <p><a href="#politica-cookies">Política de Cookies</a> | <a href="#politica-privacidade">Política de
-                Privacidade</a></p>
-        <div class="social-icons mt-3">
-            <a target="_blank" href="https://www.facebook.com/alanraph" aria-label="Facebook"><i
-                    class="fab fa-facebook-f"></i></a>
-            <a target="_blank" href="https://www.instagram.com/profalansoares/" aria-label="Instagram"><i
-                    class="fab fa-instagram"></i></a>
-            <a target="_blank" href="https://www.youtube.com/@exatascomalansoares" aria-label="YouTube"><i
-                    class="fab fa-youtube"></i></a>
-        </div>
-        <div class="developed-by mt-4">
-            <p>
-                <a href="https://innovaxhouse.com.br" target="_blank" rel="noopener noreferrer" aria-label="Visite o site do desenvolvedor">
-                    <span>Desenvolvido com <i class="fas fa-heart" style="color: rgb(31, 255, 31);"></i> por</span>
-                    <img src="imgs/innovax.png" alt="Logo da Innovax House" loading="lazy">
-                </a>
-            </p>
-        </div>
+        <!-- Botão de WhatsApp Flutuante -->
+        <a href="https://wa.me/seu-número" class="whatsapp-flutuante" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
     </footer>
 
-    <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/21998413016" class="whatsapp-float" target="_blank" rel="noopener noreferrer"
-        aria-label="Fale conosco pelo WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- Scripts -->
-    <!-- Swiper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8/swiper-bundle.min.js"></script>
-    <!-- AOS JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Font Awesome JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
-    <script>
-        // Iniciar AOS
-        AOS.init({
-            duration: 1200,
-            once: true,
-        });
-
-        // Smooth Scroll for Internal Links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offsetTop = target.offsetTop - 80; // Ajuste se necessário
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
-
 </html>
